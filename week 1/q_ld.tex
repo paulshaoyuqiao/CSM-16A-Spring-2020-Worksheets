@@ -1,0 +1,14 @@
+\learning{
+    Students should be comfortable working with proofs on linear independence and dependence of a set of vectors.
+}
+\\ \\
+Given that $\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$ is a linearly independent set of vectors, and $\vec{v}_4$ is not in the span of $\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$, show that the set $\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\}$ must be linearly independent.
+\\ \\
+\sol{
+    Consider the following equation with respect to the linear combination of all the vectors in the set $\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\}$, $c_1 \vec{v}_1 + c_2 \vec{v}_2 + c_3 \vec{v}_3 + c_4 \vec{v}_4 = \vec{0}$. \\ \\
+    Suppose by contradiction, the set $\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\}$ is linearly dependent, by definition of linear independence, we know that $\vec{v}_4$ can be expressed as a linear combination of the rest of the vectors in the set. \\ \\
+    In other words:
+    $$\vec{v_4} = -\frac{c_1}{c_4} \vec{v}_1 -\frac{c_2}{c_4} \vec{v}_2 -\frac{c_3}{c_4} \vec{v}_3, \:\: c_4 \neq 0$$ 
+    However, this also implies that $\vec{v}_4$ is in the span of $\{\vec{v}_1, \vec{v}_2, \vec{v}_3\}$, which is a contradiction with the condition given in the problem. \\ \\
+    Hence, it must be that $c_4 = 0$, and $\{\vec{v}_1, \vec{v}_2, \vec{v}_3, \vec{v}_4\}$ must be a linearly independet set. $\square$
+}
