@@ -18,6 +18,22 @@ $$-6x+3y-15z = 9$$
 
 Place these equations into a matrix $A$, and row reduce $A$ to solve the equations.
 
+\note{
+  This semester, 16A is making the distinction between a matrix in row-echelon form (REF) and reduced row-echelon form (RREF). Per Note 1, an REF matrix looks something like
+  $$\left[\begin{array}{cccc|c}  
+  1 & * & * & * & * \\  
+  0 & 1 & * & * & * \\
+  0 & 0 & 0 & 1 & * \\
+  0 & 0 & 0 & 0 & 0
+  \end{array}\right]$$ whereas an RREF matrix looks like
+  $$\left[\begin{array}{cccc|c}  
+  1 & 0 & * & 0 & * \\  
+  0 & 1 & * & 0 & * \\
+  0 & 0 & 0 & 1 & * \\
+  0 & 0 & 0 & 0 & 0
+  \end{array}\right]$$ the difference being that in an RREF matrix has only 1's or 0's in a column with a pivot.
+}
+
 \sol{
   $$A = \begin{bmatrix} 1 & -3 & 1 \\ 2 & -8 & 8 \\ -6 & 3 & -15 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 4 \\ -2 \\ 9 \end{bmatrix}$$
 
@@ -35,6 +51,23 @@ Place these equations into a matrix $A$, and row reduce $A$ to solve the equatio
 
   $$A = \begin{bmatrix} 1 & -3 & 1 \\ 0 & -1 & 3 \\ 0 & 0 & -18 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 4 \\ -5 \\ 36 \end{bmatrix}$$
 
+  $$R_2 = R_2 * -1$$
+  $$R_3 = R_3 / -18$$
+
+  $$A = \begin{bmatrix} 1 & -3 & 1 \\ 0 & 1 & -3 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 4 \\ 5 \\ -2 \end{bmatrix}$$
+
+  This form of the matrix is called the row echelon form or the REF.
+
+  $$R_2 = R_2 + 3*R_3$$
+
+  $$A = \begin{bmatrix} 1 & -3 & 1 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 4 \\ -1 \\ -2 \end{bmatrix}$$
+
+  $$R_1 = R_1 + 3*R_2 - R_3$$
+
+  $$A = \begin{bmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 3 \\ -1 \\ -2 \end{bmatrix}$$
+
+  Now, we have reduced the matrix to the reduced row echelon form or the RREF.
+
   $$z = -2$$
   $$y = -1$$
   $$x = 3$$
@@ -49,7 +82,8 @@ $$x-2y-8z = 0$$
 Place these equations into a matrix $A$, and row reduce $A$.
 
 \note{
-  Note to mentors: When you do Gaussian Elimination -- start by making $a_{2,1}$ = 0 using some multiple of $a_{1, 1}$. Next, make $a_{3, 1}$ = 0 using some multiple of $a_{1, 1}$. Next, make $a_{3, 2}$ = 0 by using some multiple of $a_{2, 2}$. In this last step, when you use row 2's pivot to subtract out row 3, the first element of row 3 will not be affected (it will remain 0). This is because in the previous steps, we got rid of the first element of row 2 as well. This is what I like to call the zig zag method of doing Gaussian Elimination. (Elena: I call this the 'staircase', and I this is the Gaussian Elimination method 16A currently teaches. I think it is officially called forward/backward elimination.) Start at the top left, move down the column. Then start again at the top of the second column and move down. 
+  Note to mentors: When you do Gaussian Elimination, start by making $a_{2,1} = 0$ using some multiple of $a_{1,1}$. Next, make $a_{3,1} = 0$ using some multiple of $a_{1,1}$. Next, make $a_{3,2} = 0$ by using some multiple of $a_{2,2}$. In this last step, when you use row 2’s pivot to subtract out row 3, the first element of row 3 will not be affected (it will remain 0). This is because in the previous steps, we got rid of the first element of row 2 as well. This is what I like to call the zig zag method of doing Gaussian Elimination. (Elena: I call this the ’staircase’, and this is the Gaussian Elimination method 16A currently teaches. I think it is officially called forward/backward elimination.) Start at the top left, move down the column. Then start again at the top of the second column and move down. \\
+  Another way of thinking about this process is that when you go forward, you’re putting the matrix into REF form, and going backwards puts it into RREF form.
 }
 
 \sol{
@@ -89,14 +123,44 @@ Place these equations into a matrix $A$, and row reduce $A$.
   0 & 0 & 0 
   \end{bmatrix}$$
 
+  $$R_1 = R_1 / 2$$
+
+  $$A = \begin{bmatrix} 
+  1 & 1.5 & 2.5 \\
+  0 & 1 & 3 \\
+  0 & 0 & 0 
+  \end{bmatrix}$$
+
+  This is the REF of the equation matrix.
+
+  $$R_1 = R_1 - 1.5*R_2$$
+  
+  $$A = \begin{bmatrix} 
+  1 & 0 & -2 \\
+  0 & 1 & 3 \\
+  0 & 0 & 0 
+  \end{bmatrix}$$
+
+  This is the RREF of the equation matrix.
+
+
 }
 
 \item
 Convert the row reduced matrix back into equation form. 
 
+\note{
+  Note that although the equations have infinite solutions, there are still some constraints on $x$, $y$, and $z$: for example, choosing $x=y=z=1$ wouldn’t work, since plugging it into the first equation would give us $2 \cdot 1 + 3 \cdot 1 + 5 \cdot 1 = 10 \ne 0$. This is shown concretely later in the problem, but be sure to keep this in mind in case a student says something along the lines of “any numbers work.”
+}
+
 \sol{
-  $$\begin{bmatrix} 2 & 3 & 5 \\0 & 1 & 3 \\0 & 0 & 0 \end{bmatrix} \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$$
-  $$2x + 3y + 5z = 0$$
+  \begin{bmatrix} 
+  1 & 0 & -2 \\
+  0 & 1 & 3 \\
+  0 & 0 & 0 
+  \end{bmatrix}$$ 
+  \begin{bmatrix} x \\ y \\ z \end{bmatrix} = \begin{bmatrix} 0 \\ 0 \\ 0 \end{bmatrix}$$
+  $$1x +0y - 2z = 0$$
   $$0x + 1y + 3z = 0$$
   $$ 0x + 0y + 0z = 0$$
 }
@@ -153,12 +217,14 @@ What is the general form (in the form of a constant vector multiplied by a varia
 
 \note{
   Explain why $z$ is the free variable. (Because it is the one that doesn't have a pivot in the corresponding column). Also explain what "general form" means if students are confused.
+
+  Students might be confused by the idea of a “general form” for the solution: try to convey that the solution is an equation that describes all possible solutions. If we assign some fixed value for $z$, then we can solve for a single pair of values for $x, y$. In the general solution, we replace $z$ with a parameter variable $t$. The equations in the solution come from setting $z=t$ (our free variable), and plugging these back into the equations from our row-reduced matrix.
 }
 
 \sol{
   $z$ is a free variable. If $z = t$, then
   $$y = -3z = -3t$$
-  $$2x + 3y + 5z = 0 \implies 2x -9t +5t = 0 \implies 2x = 4t \implies x = 2t$$
+  $$x - 2z = 0 \implies x = 2z = 2t$$
 
   The general solution is then $t \begin{bmatrix} 2 \\ -3 \\ 1 \end{bmatrix}$. What this means is that any multiple of the vector $\begin{bmatrix} 2 \\ -3 \\ 1 \end{bmatrix}$ will satisfy the equations. Try it!
 }
