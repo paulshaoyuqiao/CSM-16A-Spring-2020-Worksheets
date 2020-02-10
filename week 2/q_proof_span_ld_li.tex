@@ -1,0 +1,32 @@
+% Author: Pranshu Bansal
+% Email: pranshu@berkeley.edu
+\learning{
+Proof on spans and linear dependence/independence
+}
+
+\item{
+    Let {$\vec{v}_1,\vec{v}_2, \dots, \vec{v}_n$} be a set of vectors V. Prove that if the set of vectors is linearly dependent, then at least one vector can be deleted from the set without diminishing its span.
+}
+
+\sol{
+  The general form of a vector $\vec{v}$ in the span of {$\vec{v}_1,\vec{v}_2, \dots, \vec{v}_n$} is $c_1\vec{v}_1 + c_2\vec{v}_2 + \dots + c_n\vec{v}_n$.
+
+  Without loss of generality, let us assume $\vec{v}_1$ can be written as the linear combination of the remaining vectors as $a_2\vec{v}_2 + a_3\vec{v}_3 + \dots + a_n\vec{v}_n$.
+
+  $$\vec{v} = c_1\vec{v}_1 + c_2\vec{v}_2 + \dots + c_n\vec{v}_n$$
+
+  If we substitute $\vec{v}_1$ for the above value ($a_2\vec{v}_2 + a_3\vec{v}_3 + \dots + a_n\vec{v}_n$) in the general form of $\vec{v}$, we get: 
+
+  $$\vec{v} = c_1*(a_2\vec{v}_2 + a_3\vec{v}_3 + \dots + a_n\vec{v}_n) + c_2\vec{v}_2 + \dots + c_n\vec{v}_n$$
+
+  $$\vec{v} = c_1a_2\vec{v}_2 + c_1a_3\vec{v}_3 + \dots + c_1a_n\vec{v}_n + c_2\vec{v}_2 + \dots + c_n\vec{v}_n$$
+
+  $$\vec{v} = (c_1a_2 + c_2)\vec{v}_2 + (c_1a_3 + c_3)\vec{v}_3 + \dots + (c_1a_n + c_n)\vec{v}_n$$
+
+  We can see that any vector we could represent as a linear combination of the vectors in V can be represented without using $\vec{v}_1$ using the new parameters we got in the above equation.
+
+  Hence, if the set of vectors is linearly dependent, then at least one vector can be deleted from the set without diminishing its span.
+
+}
+
+\newpage

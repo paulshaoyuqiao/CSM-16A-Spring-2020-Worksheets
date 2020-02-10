@@ -1,0 +1,5 @@
+[0] Config.pm:302> INFO - This is Biber 2.11
+[0] Config.pm:305> INFO - Logfile is 'solutions.blg'
+[31] biber-darwin:313> INFO - === Sat Feb  1, 2020, 14:24:08
+[48] Biber.pm:371> INFO - Reading 'solutions.bcf'
+[120] Utils.pm:193> WARN - No data sources defined!
