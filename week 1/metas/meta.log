@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2018.4.16)  1 FEB 2020 15:39
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2018.4.16)  6 FEB 2020 09:59
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"/Users/paulshao/Desktop/CSM 16A Sp20 Worksheets/week 1/metas/meta"
@@ -915,7 +915,7 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 9.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}](load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmromanslant10-regular.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmromanslant10-bold.luc) [2]) (../q_eqns.tex [3] [4](load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-bold.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-regular.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-bold.luc) [5] [6]) (../q_proof.tex(load luc: /usr/local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bolditalic.luc)
+{/usr/local/texlive/2018/texmf-var/fonts/map/pdftex/updmap/pdftex.map}](load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmromanslant10-regular.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmromanslant10-bold.luc) [2]) (../q_eqns.tex [3] [4] [5](load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-regular.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman7-bold.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-regular.luc)(load luc: /Users/paulshao/Library/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman5-bold.luc) [6] [7]) (../q_proof.tex(load luc: /usr/local/texlive/2018/texmf-var/luatex-cache/generic/fonts/otl/lmroman10-bolditalic.luc)
 Underfull \hbox (badness 10000) in paragraph at lines 12--28
 
  []
@@ -936,76 +936,101 @@ Underfull \hbox (badness 10000) in paragraph at lines 12--28
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 78--78
+
+ []
+
+[8]
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 113--114
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 137--137
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
+Underfull \hbox (badness 10000) in paragraph at lines 137--138
+
+ []
+
+[9]) [10] (../q_ld.tex
+Underfull \hbox (badness 10000) in paragraph at lines 16--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--96
-
- []
-
-[7])
-Underfull \hbox (badness 10000) in paragraph at lines 96--15
+Underfull \hbox (badness 10000) in paragraph at lines 16--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--15
-
- []
-
-[8] (../q_ld.tex
-Underfull \hbox (badness 10000) in paragraph at lines 16--14
+Underfull \hbox (badness 10000) in paragraph at lines 16--8
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--14
+Underfull \hbox (badness 10000) in paragraph at lines 8--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--14
+Underfull \hbox (badness 10000) in paragraph at lines 8--57
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--14
+Underfull \hbox (badness 10000) in paragraph at lines 8--57
 
  []
 
-)
-Underfull \hbox (badness 10000) in paragraph at lines 14--19
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--57
 
  []
 
-[9]
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 8--57
+
+ []
+
+[11]
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 57--57
+
+ []
+
+) [12]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 19.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 19.
  (./meta.aux)
@@ -1019,19 +1044,19 @@ Package logreq Info: Writing requests to 'meta.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 25991 strings out of 494413
+ 25999 strings out of 494413
  125171,953878 words of node,token memory allocated
- 695 words of node memory still in use:
-   5 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 57 attribute, 60 glue_spec, 57 attribute_list, 1 write nodes
-   avail lists: 1:2,2:885,3:130,4:42,5:290,6:21,7:4065,8:63,9:432,10:14,11:239
+ 795 words of node memory still in use:
+   5 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 82 attribute, 60 glue_spec, 82 attribute_list, 1 write nodes
+   avail lists: 1:2,2:665,3:124,4:37,5:280,6:19,7:4104,8:73,9:383,10:13,11:244
  29190 multiletter control sequences out of 65536+600000
  45 fonts using 3419775 bytes
  57i,9n,54p,949b,789s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bolditalic.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmromanslant10-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmromanslant10-regular.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman9-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on meta.pdf (9 pages, 127458 bytes).
+Output written on meta.pdf (12 pages, 145058 bytes).
 
-PDF statistics: 160 PDF objects out of 1000 (max. 8388607)
- 114 compressed objects within 2 object streams
- 29 named destinations out of 1000 (max. 131072)
+PDF statistics: 181 PDF objects out of 1000 (max. 8388607)
+ 132 compressed objects within 2 object streams
+ 37 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 100000000)
 
