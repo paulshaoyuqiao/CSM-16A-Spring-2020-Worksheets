@@ -1,0 +1,78 @@
+% Author: Mudit Gupta and Pranshu Bansal
+% Email: mudit@berkeley.edu, pranshu@berkeley.edu
+
+% Credits: https://www.mathway.com/examples/algebra/linear-transformations/proving-a-transformation-is-linear?id=266
+
+\qns{Are you linear?}
+
+\begin{enumerate}
+
+\qitem{
+    Consider a matrix $\mathbf{S}$ that transforms a vector $\vec{x} = \begin{bmatrix} a \\ b\end{bmatrix}$ to $\vec{y} = \begin{bmatrix} a + b \\ a - b \end{bmatrix}$. Note that $a, b$ can take on any values in $\mathbb{R}$. In other words, $\mathbf{S}\vec{x} = \vec{y}$. Is this transformation linear?
+}
+
+\sol{Prereq: Knowledge of transformations and linearity (definitions, examples, and proofs). Be sure to make sure students realize that it is \textit{not} possible for $\mathbf{Q}$ to be a real matrix, but that we're treating it as if it could be one as some food for thought. 
+
+Description: Please note that this might be the first time students are thinking of matrices as transformations. Let this settle in. The fact that a matrix is essentially a function that takes one vector and makes it a different vector. This is no different from a real-valued function like $f(x) = x^2$, except the only difference is that $x$ is a vector, and $f$ is a matrix. It might also be useful to show simple (non-matrix) examples of linear and non-linear transformations. A simple example of a non-linear transformation is something that squares each component of the vector. A simple example of a linear transformation is the 0 transformation.}
+
+\ans{
+    To prove whether a transformation is linear, we must check whether it preserves scalar multiplication, addition and the zero vector. \\
+
+    \textbf{Scalar multiplication} \\
+    Let $\alpha \in \mathbb{R}$. Is $\mathbf{S}(\alpha\vec{x}) = \alpha\vec{y}?$ \\
+    $\mathbf{S}\begin{bmatrix}\alpha a \\ \alpha b \end{bmatrix} = \alpha \begin{bmatrix} a + b \\ a - b \end{bmatrix}$. Try it! \\ \\
+
+    \textbf{Addition} \\
+    Is $\mathbf{S}(\vec{x}_1 + \vec{x}_2) = \mathbf{S}\vec{x}_1 + \mathbf{S}\vec{x}_2?$ \\
+    Let $\vec{x}_1 = \begin{bmatrix} a_1 \\ b_1 \end{bmatrix}$ and $\vec{x}_2 = \begin{bmatrix} a_2 \\ b_2 \end{bmatrix}$. Then $\mathbf{S}(\vec{x}_1 + \vec{x}_2) = \mathbf{S}\vec{x}_1 + \mathbf{S}\vec{x}_2.$ Try it out!
+
+    \textbf{Zero vector} \\
+    Is $\mathbf{S}\cdot\vec{0} = \vec{0}$? Yes. \\
+
+    This proves that $\mathbf{S}$ is indeed a linear transformation.
+}
+
+\qitem{
+    What is the matrix $\mathbf{S}$? Is the matrix invertible? Is the transformation invertible?
+}
+
+\ans{
+    The matrix $\mathbf{S} = \begin{bmatrix} 1 & 1 \\ 1 & -1 \end{bmatrix}$. \\
+    We can see that the matrix is invertible as all rows and columns are linearly independent. It means we can uniquely recover the input (initial) vector by multiplying the inverse of the matrix with the output (transformed) vector. Try doing it yourself! \\
+
+    This problem reduced to whether we can uniquely identify $a$ and $b$ given the values of $a + b$ and $a - b$. (Yes, we can!) \\
+
+    Since we can uniquely recover our input vector by using the inverse of the matrix, there exists a one-to-one mapping between all possible input and output vectors. Hence, this linear transformation is invertible.
+}
+
+\qitem{Consider a matrix $\mathbf{S}$ that transforms a vector $\vec{x} = \begin{bmatrix} a \\ b \\ c\end{bmatrix}$ to $\vec{y} = \begin{bmatrix} a - b - c \\ a-b-c \\ a-b+c\end{bmatrix}$. Note that $a, b, c$ can take on any values in $\mathbb{R}$. In other words, $\mathbf{S}\vec{x} = \vec{y}$. Is this transformation linear?}
+
+\ans{
+    To prove whether a transformation is linear, we must check whether it preserves scalar multiplication, addition and the zero vector. \\
+
+    \textbf{Scalar multiplication} \\
+    Let $\alpha \in \mathbb{R}$. Is $\mathbf{S}(\alpha\vec{x}) = \alpha\vec{y}?$ \\
+    $\mathbf{S}\begin{bmatrix}\alpha a \\ \alpha b \\ \alpha c \end{bmatrix} = \alpha \begin{bmatrix} a - b - c \\ a-b-c \\ a-b+c\end{bmatrix}$. Try it! \\ \\
+
+    \textbf{Addition} \\
+    Is $\mathbf{S}(\vec{x}_1 + \vec{x}_1) = \mathbf{S}\vec{x}_1 + \mathbf{S}\vec{x}_2?$ \\
+    Let $\vec{x}_1 = \begin{bmatrix} a_1 \\ b_1 \\ c_1 \end{bmatrix}$ and $\vec{x}_2 = \begin{bmatrix} a_2 \\ b_2 \\ c_2 \end{bmatrix}$. Then $\mathbf{S}(\vec{x}_1 + \vec{x}_2) = \mathbf{S}\vec{x}_1 + \mathbf{S}\vec{x}_2.$ Try it out!
+
+    \textbf{Zero vector} \\
+    Is $\mathbf{S}\cdot\vec{0} = \vec{0}$? Yes. \\
+
+    This proves that $\mathbf{S}$ is indeed a linear transformation.
+}
+
+\sol{At the end of this, get the students to ask you "well... but... since matrix-vector multiplication is linear, of course every matrix is a linear operator!!" This should be the next question they ask. Bonus: If every matrix transformation is a linear transformation, can we also say that every linear transformation is a matrix transformation?}
+
+\qitem{
+    Write out the matrix $\mathbf{S}$. Is it invertible? Combining with what you saw in the previous part, what can you say about the relationship between whether a matrix is invertible and whether the matrix transformation is a linear transformation?
+}
+
+\ans{
+    $\mathbf{S} = \begin{bmatrix} 1 & -1 & -1 \\ 1 & -1 & -1 \\ 1 & -1 & 1 \end{bmatrix}$. This matrix is not invertible, but it was still linear! What does this tell us? There is no definitive relationship between invertibility and linear transformation! One does not lead to the other.}
+
+\sol{Go back to the definition of invertibility and prove to students why this transformation is non linear i.e. show them that there exist multiple vectors that can output the same vector when transformed by this matrix.}
+
+\end{enumerate}
