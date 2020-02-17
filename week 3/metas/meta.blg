@@ -1,5 +1,0 @@
-[0] Config.pm:302> INFO - This is Biber 2.11
-[0] Config.pm:305> INFO - Logfile is 'meta.blg'
-[30] biber-darwin:313> INFO - === Mon Feb 10, 2020, 09:23:56
-[48] Biber.pm:371> INFO - Reading 'meta.bcf'
-[120] Utils.pm:193> WARN - No data sources defined!

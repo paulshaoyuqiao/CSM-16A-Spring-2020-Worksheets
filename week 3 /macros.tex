@@ -6,6 +6,11 @@
 \usepackage{verbatim}
 \usepackage{subcaption}
 \usepackage{biblatex}
+\usepackage{tkz-euclide}
+\usepackage{pdfpages}
+% \usepackage{physics}
+\usepackage{pgfplots}
+\usepackage[american,siunitx]{circuitikz}
 \usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb,tkz-linknodes}
 \usepackage{float}
 \usepackage{fancyhdr}
@@ -41,7 +46,7 @@ pdfproducer={PDFLaTeX},%
    \begin{center}
    \framebox{
       \vbox{\vspace{2mm}
-    \hbox to 6.28in { {\bf CSM 16A \hfill {\small (#2)}} }
+    \hbox to 6.28in { {\bf CSM 16A \hfill {\small #2}} }
        \vspace{6mm}
        \hbox to 6.28in { {\LARGE \hfill #1  \hfill} }
        \vspace{6mm}
@@ -88,3 +93,4 @@ pdfproducer={PDFLaTeX},%
       }
   }
 }
+\def\m{\ensuremath\mathbf}
