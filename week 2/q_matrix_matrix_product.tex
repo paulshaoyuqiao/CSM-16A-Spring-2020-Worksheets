@@ -44,28 +44,28 @@ $$\vec{b}_2 = \begin{bmatrix} 1 \\ 6 \end{bmatrix}$$
   $$A \vec{b}_2 = \begin{bmatrix} 19 \\ 61 \end{bmatrix}$$
 }
 
-\item What is $\vec{a}_1$ B?
-$$\vec{a}_1 = \begin{bmatrix} 1 & 3 \end{bmatrix}$$
+\item What is $\vec{a}_1^T$ B?
+$$\vec{a}_1^T = \begin{bmatrix} 1 & 3 \end{bmatrix}$$
 $$B = \begin{bmatrix} 5 & 1 \\3 & 6 \end{bmatrix}$$
 
 \sol{
-  $$\vec{a}_1 B = \begin{bmatrix} 1 & 3 \end{bmatrix} \begin{bmatrix} 5 & 1 \\3 & 6 \end{bmatrix}$$
+  $$\vec{a}_1^T B = \begin{bmatrix} 1 & 3 \end{bmatrix} \begin{bmatrix} 5 & 1 \\3 & 6 \end{bmatrix}$$
 
-  $$\vec{a}_1 B = \begin{bmatrix} 1*5 + 3*3 & 1*1 + 3*6 \end{bmatrix}$$
+  $$\vec{a}_1^T B = \begin{bmatrix} 1*5 + 3*3 & 1*1 + 3*6 \end{bmatrix}$$
 
-  $$\vec{a}_1 B = \begin{bmatrix} 14 & 19 \end{bmatrix}$$
+  $$\vec{a}_1^T B = \begin{bmatrix} 14 & 19 \end{bmatrix}$$
 }
 
-\item What is $\vec{a}_2$ B?
-$$\vec{a}_2 = \begin{bmatrix} 7 & 9 \end{bmatrix}$$
+\item What is $\vec{a}_2^T$ B?
+$$\vec{a}_2^T = \begin{bmatrix} 7 & 9 \end{bmatrix}$$
 $$B = \begin{bmatrix} 5 & 1 \\3 & 6 \end{bmatrix}$$
 
 \sol{
-  $$\vec{a}_2 B = \begin{bmatrix} 7 & 9 \end{bmatrix} \begin{bmatrix} 5 & 1 \\3 & 6 \end{bmatrix}$$
+  $$\vec{a}_2^T B = \begin{bmatrix} 7 & 9 \end{bmatrix} \begin{bmatrix} 5 & 1 \\3 & 6 \end{bmatrix}$$
 
-  $$\vec{a}_2 B = \begin{bmatrix} 7*5 + 9*3 & 7*1 + 9*6 \end{bmatrix}$$
+  $$\vec{a}_2^T B = \begin{bmatrix} 7*5 + 9*3 & 7*1 + 9*6 \end{bmatrix}$$
 
-  $$\vec{a}_2 B = \begin{bmatrix} 62 & 61 \end{bmatrix}$$
+  $$\vec{a}_2^T B = \begin{bmatrix} 62 & 61 \end{bmatrix}$$
 }
 
 
@@ -77,9 +77,9 @@ $$B = \begin{bmatrix} 5 & 1 \\3 & 6 \end{bmatrix}$$
   $$AB = \begin{bmatrix} (1*5 + 3*3) & (1*1 + 3*6)\\(7*5 + 9*3) & (7*1 + 9*6) \end{bmatrix}$$
   $$AB = \begin{bmatrix} 14 & 19 \\ 62 & 61 \end{bmatrix}$$
 
-  Note that $AB = \begin{bmatrix} A\vec{b}_1 & A\vec{b}_2 \end{bmatrix}$ and $AB = \begin{bmatrix} \vec{a}_1 B \\ \vec{a}_2 B \end{bmatrix}$
+  Note that $AB = \begin{bmatrix} A\vec{b}_1 & A\vec{b}_2 \end{bmatrix}$ and $AB = \begin{bmatrix} \vec{a}_1^T B \\ \vec{a}_2^T B \end{bmatrix}$
 
-  Imagine A is a matrix made of row vectors $\vec{a}_1, \vec{a}_2, \dots, \vec{a}_n$ and B is a matrix made of column vectors $\vec{b}_1, \vec{b}_2, \dots, \vec{b}_n$. Then, $$AB = \begin{bmatrix} A\vec{b}_1 & A\vec{b}_2 & \dots & A\vec{b}_n \end{bmatrix}$$ And also, $$AB = \begin{bmatrix} \vec{a}_1 B \\ \vec{a}_2 B \\ \dots \\ \vec{a}_n B \end{bmatrix}$$.
+  Imagine A is a matrix made of row vectors $\vec{a}_1, \vec{a}_2, \dots, \vec{a}_n$ and B is a matrix made of column vectors $\vec{b}_1, \vec{b}_2, \dots, \vec{b}_n$. Then, $$AB = \begin{bmatrix} A\vec{b}_1 & A\vec{b}_2 & \dots & A\vec{b}_n \end{bmatrix}$$ And also, $$AB = \begin{bmatrix} \vec{a}_1^T B \\ \vec{a}_2^T B \\ \dots \\ \vec{a}_n^T B \end{bmatrix}$$.
 }
 
 \end{enumerate}

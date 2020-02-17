@@ -7,7 +7,7 @@ In this question, we will learn about the underlying transformations that allow 
 
 \begin{enumerate}
 
-\item What matrix $B$ can we multiply by a $3 \times 3$ matrix $M$ to get a new matrix $M'$ that is the same as $M$ but with row $2$ scaled by $1/5$?
+\item What matrix $B$ can we left multiply by a $3 \times 3$ matrix $M$ to get a new matrix $M'$ that is the same as $M$ but with row $2$ scaled by $1/5$?
 
 \note{
 Go through the steps of matrix multiplication to illustrate how putting a scalar $a$ in $i$th column of $A$ grabs elements from the $i$th row of $M$ multiplied by $a$.
@@ -54,13 +54,13 @@ Let $M =
 \vec{m_2}^T \\
 \vec{m_3}^T
 \end{bmatrix}$
-and $B =
+and $A =
 \begin{bmatrix} 
 a_{1,1} & a_{1,2} & a_{1,3} \\
 a_{2,1} & a_{2,2} & a_{2,3} \\
 a_{3,1} & a_{3,2} & a_{3,3}
 \end{bmatrix}$
-then $BM =
+then $AM =
 \begin{bmatrix} 
 a_{1, 1} \vec{m_1}^T + a_{1, 2} \vec{m_2}^T + a_{1, 3} \vec{m_3}^T \\
 a_{2, 1} \vec{m_1}^T + a_{2, 2} \vec{m_2}^T + a_{2, 3} \vec{m_3}^T \\
@@ -68,7 +68,7 @@ a_{3, 1} \vec{m_1}^T + a_{3, 2} \vec{m_2}^T + a_{3, 3} \vec{m_3}^T
 \end{bmatrix}$
 so if we want to swap row 1 and row 3 and leave row 2 unchanged, then we should make $a_{1, 3} = 1$ since it will put one of row 3 in row 1,  $a_{3, 1} = 1$ since it will put one of row 1 in row 3, $a_{2, 2} = 1$ to keep row 2 the same, and the remaining $a_{i, j} = 0$.
 
-$$B =
+$$A =
 \begin{bmatrix} 
 0 & 0 & 1 \\
 0 & 1 & 0 \\
@@ -76,7 +76,7 @@ $$B =
 \end{bmatrix}$$
 }
 
-\item What matrix $C$ can we left multiply by a $3 \times 3$ matrix $M$ to get a new matrix $M'$ that is the same as $M$ but with the 3 times row $1$ added to the row $2$?
+\item What matrix $A$ can we left multiply by a $3 \times 3$ matrix $M$ to get a new matrix $M'$ that is the same as $M$ but with the 3 times row $1$ added to the row $2$?
 
 \note{
 Go through the steps of matrix multiplication again to show how the values from row 1 and row 2 of $M$ are summed to create row 2 of $M'$.
@@ -85,7 +85,7 @@ Go through the steps of matrix multiplication again to show how the values from 
 \sol{
 To get this matrix, you can use the method from the solution to part (b), but make $a_{2, 1} = 3$ to put $3$ times row 1 in row 2, $a_{1, 1} = a_{2, 2} = a_{3, 3} = 1$ to keep the original rows except for what we added to row 2, and the remaining $a_{i, j} = 0$.
 
-$$B =
+$$A =
 \begin{bmatrix} 
 1 & 0 & 0 \\
 3 & 1 & 0 \\
@@ -116,7 +116,24 @@ The multiplicative inverse of $2$ is $\frac{1}{2}$. The multiplicative identity 
 to get the identity matrix?
 
 \note{
-Make sure students understand that these would be the steps taken in Gaussian elimination.
+Make sure students understand that these would be the steps taken in Gaussian elimination. \\
+
+\textbf{It is also very crucial to let the students see how if you left multiply the 3 matrices from the previous questions (in that order) with $M$}, you will get exactly the matrix we are seeking in this part. \\
+
+Take some time to do the computation, and reinforce the concept that 
+\begin{center}
+    {
+    \color{JungleGreen}
+    \textbf{Elementary row operations} can be represented as individual matrices!
+}
+\end{center}
+
+{
+    \color{RoyalBlue}
+    \textbf{
+        This is a crucial conjecture in the correctness of the algorithm to find the inverse of a matrix!!!
+    }
+}
 }
 
 \sol{
@@ -193,11 +210,51 @@ No, there are not a set of transformations. It is not possible because the rows 
 \item Can you find the inverse of a non-square matrix (e.g. a $2 \times 3$ matrix)?
 
 \note{
-This question forces the students to think about the requirements and properties of an inverse.
+This question forces the students to think about the requirements and properties of an inverse. \\
+To supplement with some extended concepts (not in scope for this course), you can provide students with the following definitions: \\ \\
+For any $m \times n$ real matrix $A$
+\begin{itemize}
+    \item $A$ has a left inverse if there exists some $n \times m$ matrix $B$ such that $BA = I_n$.
+    \item $A$ has a right inverse if there exists somne $n \times m$ matrix $B$ such that $AB = I_m$.
+\end{itemize}
+As you can see, 16A's definition of matrix inverse only holds if a matrix has both a left inverse and a right inverse!
+
+{
+    \color{NavyBlue}
+    The concept of left and right inverses is actually well connected to set theory: the study of functional relations among sets (usually finitely/infinitely countable sets). If you want to explore more, here's an important theorem that establishes this connection (the concepts/implications are covered in CS70):
+\begin{itemize}
+    \item A matrix $A$ has a left inverse if and only if it is an \textbf{injective transformation}. This means that:
+    $$\forall \vec{v}_1, \vec{v}_2, A\vec{v}_1 = A\vec{v}_2 \Rightarrow \vec{v}_1 = \vec{v}_2.$$
+    Equivalently, we also have the contrapositive:
+    $$\forall \vec{v}_1, \vec{v}_1 \neq \vec{v}_2 \Rightarrow A\vec{v}_1 \neq A\vec{v}_2.$$
+    \item A matrix $A$ has a right inverse if and only if it is a \textbf{surjective transformation}. This means that:
+    $$\forall \vec{u} \in Col(A), \exists \vec{v} \text{ s.t. } A\vec{v} = \vec{u}.$$
+    \item As a corollary, we can see that a matrix $A$ has an inverse if it is both an injective and surjective transformation (we call such a transformation \textbf{bijective}).
+\end{itemize}
+Here're some visual illustrations that might help with understanding:
+\begin{figure}[H]
+    \centering
+    \begin{minipage}{.3\textwidth}
+    \centering
+    \includegraphics[width=3cm]{../injective.png}
+    \caption*{An \textbf{Injective} Function (Injection)}
+    \end{minipage}
+    \begin{minipage}{.32\textwidth}
+    \centering
+    \includegraphics[width=3cm]{../surjective.png}
+    \caption*{A \textbf{Surjective} Function (Surjection)}
+    \end{minipage}
+    \begin{minipage}{.3\textwidth}
+    \centering
+    \includegraphics[width=3cm]{../bijective.png}
+    \caption*{A \textbf{Bijective} Function (Bijection)}
+    \end{minipage}
+\end{figure}
+}
 }
 
 \sol{
-No, not really. There might be a left or right inverse, but there will not be an inverse. Usually $AA^{-1} = A^{-1}A = I$, but this is not possible with rectangular matrices because their row count and column count differ,
+No. Recall from lecture, an $n \times n$ square matrix $A$ has an inverse only if $AA^{-1} = A^{-1}A = I$, where $I$ is the identity matrix, and $A$ is an $n \times n$ square matrix. This is not possible with rectangular matrices because their row count and column count differ.
 }
 
 \end{enumerate}

@@ -11,6 +11,20 @@ A rotation matrix is a matrix that takes a vector and rotates it by some number 
 
   In this question, we will explore some of the properties a rotation matrix has in more depth and see how the algebra behind is deeply connected to the geometric transformation we see.
 
+  \note{
+    Before proceeding, please show the students how the rotation matrix is actually derived. Especially show them how it is a linear transformation on the two following vectors in the standard basis of $\mathbb{R}^2$:
+    $$\vec{e}_1 = \begin{bmatrix}
+      1 \\ 0
+    \end{bmatrix}, \:\: \vec{e}_2 = \begin{bmatrix}
+      0 \\ 1
+    \end{bmatrix}$$
+    Here's an accompanying figure that helps illustrate the process:
+    \begin{figure}[H]
+      \centering
+      \includegraphics[width=14cm]{../rotation.png}
+    \end{figure}
+  }
+
   \begin{enumerate}
       \item Given the following vector: 
       $$\vec{v} = \begin{bmatrix}
@@ -77,7 +91,15 @@ Hence, $R_{c'}$ and $R_{c}$ are inverses of each other!}
 
 \item Now that we have learned about the intrinsic connections between rotation matrix multiplication/inverse and the geometric transformation, in a few sentences, explain why the multiplication of rotation matrices is commutative. i.e.: Explain why given two rotation matrices $A$ and $B$ ($A$ and $B$ are both $N \times N$) , $AB = BA$.
 
-\note{Encourage the students to think in terms of the overall resulting vector and contrast that with the order of our rotation.}
+\note{Encourage the students to think in terms of the overall resulting vector and contrast that with the order of our rotation.
+
+{
+  \color{NavyBlue}
+  It is \textbf{EXTREMELY CRUCIAL} to emphasize to the students that the reason we can conclude $AB = BA$ in the end is because $\vec{v}$ can be any vector from $\mathbb{R}^2$. \\ \\
+  The implication (out of scope for this class) is because we can see that $$Nul(AB - BA) = \mathbb{R}^2,$$ and by the fundamental theorem of linear algebra, $$Col(AB - BA) \: \oplus \: Nul(AB - BA) = \mathbb{R}^2,$$ this tells us that $$Col(AB - BA) = \{ \vec{0} \}.$$
+  The justification above is \textbf{NON-TRIVIAL}, and you cannot conclude $AB - BA = 0$ without having $\vec{v}$ being any vector from $\mathbb{R}^2$!!!
+}
+}
 
 \sol{Geometrically, since we are rotating the vector by the sum of all the given degrees from the rotation matrices. It doesn't matter how many degrees we rotate the vector first during the process.
 
