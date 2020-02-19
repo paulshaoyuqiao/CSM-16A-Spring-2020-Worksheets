@@ -25,6 +25,15 @@ Another element can be obtained by setting the values of $a_1 = 3$ and $a_3 = 2$
 
 \item{Is the set $W$ a subspace?}
 
+\ans{
+Meta:
+If students attempt an exhaustive proof of all the axioms of a vector space, be sure to note that many are satisfied by nature of the superset R3. Explain what closure under (+, *) means and why it matters.
+A fast way to disprove a subspace is to show the non-existence of the zero vector. 
+Explain how set notation is defined and how to read it
+Subset != subspace
+
+}
+
 \sol{
     \textbf{Step 1: Claim that $W$ is a sub$\textit{set}$ of, say, $X$}. \\
     $W$ is clearly a subset of $\mathbb{R}^3$. This can be seen because the elements of $W$ contain 3 elements, but $W$ is not equal to $\mathbb{R}^3$ since some elements from $\mathbb{R}^3$ are not in $W$. \\ 
@@ -62,6 +71,24 @@ Another element can be obtained by setting the values of $a_1 = 3$ and $a_3 = 2$
 \sol{
     Since we know the set is closed under scalar multiplication and under addition, we can easily find more elements. Previously, we found $\vec{v}_1 = \begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$ to be an element. Now we know that any multiple of this is in the set too! \\
     We also found that $\vec{v}_2 = \begin{bmatrix} 3 \\ \frac{3}{2} \\ 2 \end{bmatrix}$ was in the set. Now we can add the 2 elements we found, and $\begin{bmatrix} 4 \\ \frac{5}{2} \\ 3 \end{bmatrix}$ is also in the set. In fact, any $s\vec{v}_1 + r\vec{v}_2$, where $s, r \in \mathbb{R}$ are in the set! 
+}
+
+\item{Consider the set $X = \left\{\begin{bmatrix} a_1 \\ a_2 \\ a_3 \end{bmatrix}, a_1, a_2, a_3 \in \mathbb{R}: a_1 * a_2 * a_3 = 0\right\}$. Is $X$? is subspace?}
+
+\sol{
+    We can quickly see that this set would have a zero vector. \\
+
+    This set also satisfies the scalar multiplication property; if $a_1 * a_2 * a_3 = 0$, one of the elements of the vector has to be zero and scaling the vector will not change that. \\
+
+    However, this set is not closed under addition. We can verify this: \\
+
+    $\begin{bmatrix} 1 \\ 1 \\ 0 \end{bmatrix}$ belongs to the set as $1 * 1 * 0 = 0$. \\
+
+    $\begin{bmatrix} 0 \\ 0 \\ 2 \end{bmatrix}$ also belongs to the set as $0 * 0 * 1 = 0$. \\
+
+    However, the sum of the two vectors, $\begin{bmatrix} 1 \\ 1 \\ 1 \end{bmatrix}$ doesn't belong to the set as $1 * 1 * 1 = 1$. \\
+
+    Hence, set X is not a subspace.
 }
 
 
