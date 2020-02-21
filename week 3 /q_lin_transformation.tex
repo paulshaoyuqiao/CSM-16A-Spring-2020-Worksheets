@@ -8,7 +8,8 @@
     Consider a matrix $\mathbf{S}$ that transforms a vector $\vec{x} = \begin{bmatrix} a \\ b\end{bmatrix}$ to $\vec{y} = \begin{bmatrix} a + b \\ a - b \end{bmatrix}$. Note that $a, b$ can take on any values in $\mathbb{R}$. In other words, $\mathbf{S}\vec{x} = \vec{y}$. Is this transformation linear?
 }
 
-\note{Prereq: Knowledge of transformations and linearity (definitions, examples, and proofs). Be sure to make sure students realize that it is \textit{not} possible for $\mathbf{Q}$ to be a real matrix, but that we're treating it as if it could be one as some food for thought. 
+\note{
+If students are stuck, prompt the students by asking what three things a transformation needs to be considered linear.
 
 Description: Please note that this might be the first time students are thinking of matrices as transformations. Let this settle in. The fact that a matrix is essentially a function that takes one vector and makes it a different vector. This is no different from a real-valued function like $f(x) = x^2$, except the only difference is that $x$ is a vector, and $f$ is a matrix. It might also be useful to show simple (non-matrix) examples of linear and non-linear transformations. A simple example of a non-linear transformation is something that squares each component of the vector. A simple example of a linear transformation is the 0 transformation.}
 
@@ -64,12 +65,12 @@ Description: Please note that this might be the first time students are thinking
 \note{At the end of this, get the students to ask you "well... but... since matrix-vector multiplication is linear, of course every matrix is a linear operator!!" This should be the next question they ask. Bonus: If every matrix transformation is a linear transformation, can we also say that every linear transformation is a matrix transformation?}
 
 \item{
-    Write out the matrix $\mathbf{S}$. Is it invertible? Combining with what you saw in the previous part, what can you say about the relationship between whether a matrix is invertible and whether the matrix transformation is a linear transformation?
+    Write out the matrix $\mathbf{S}$ from part 3. Is it invertible? Combining with what you saw in the previous part, what can you say about the relationship between whether a matrix is invertible and whether the matrix transformation is a linear transformation?
 }
 
 \sol{
     $\mathbf{S} = \begin{bmatrix} 1 & -1 & -1 \\ 1 & -1 & -1 \\ 1 & -1 & 1 \end{bmatrix}$. This matrix is not invertible, but it was still linear! What does this tell us? There is no definitive relationship between invertibility and linear transformation! One does not lead to the other.}
 
-\note{Go back to the definition of invertibility and prove to students why this transformation is non linear i.e. show them that there exist multiple vectors that can output the same vector when transformed by this matrix.}
+\note{Go back to the definition of invertibility and prove to students why this transformation is non invertible i.e. show them that there exist multiple vectors that can output the same vector when transformed by this matrix.}
 
 \end{enumerate}
