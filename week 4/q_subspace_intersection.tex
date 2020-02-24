@@ -1,0 +1,43 @@
+\learning{Intersection of Subspaces}
+
+Suppose $U$ and $V$ are both subspaces of a vector space $S$, is the intersection of $U$ and $V$ (notation wise, we can represent it as $U \cap V$) also a subspace of $S$?
+
+\note{
+    Please make sure to explain to the students that $A \cap B$ means the intersection between sets $A$ and $B$.
+    
+    This is one of the more abstract examples on vector subspaces that also involve some understanding on simple set relations. Make sure to show the students that the subspace test process still remains mostly unchanged. }
+
+\answerbox{15}
+
+\sol{
+    \begin{enumerate}
+        \item{\textit{Vector Addition}: Consider 2 vectors $\vec{x}, \vec{y} \in U \cap V$. We want to show that $\vec{x} + \vec{y} \in U \cap V$.
+
+        To show that this is true, it seems like a direct approach might be a bit hard since it seems unclear what exactly $U \cap V$ contains in terms of their properties. However, making use of the fact that $U \cap V \subset U, V$ (\textbf{The intersection of $U$ and $V$ is a subset of $U$ and $V$}) will be crucial to the proof.
+
+        It may help to consider this graphically:
+        \begin{center}
+            \input{venn_diagram}
+        \end{center}
+        We've marked in green the intersection between sets $U$ and $V$.
+
+        If $\vec{x}, \vec{y}\in U\cap V$, both fall in the center region of the venn diagram. This means $\vec{x}, \vec{y} \in U$ as well as $V$! The implication goes both ways; if some vector $\vec{z}$ falls in both $U$ and $V$ (the left and right circles), then it necessarily falls into their intersection, $U\cap V$.
+
+        We're already told that $V$ and $U$ are vector spaces, meaning $\vec{x} + \vec{y} \in U$ and $V$ separately, so $\vec{x} + \vec{y} \in U\cap V$.
+        % Note that $\vec{u} \in U \cap V \Longrightarrow \vec{u} \in V$ and $U$, and by similar logic $\vec{v} \in V$, and $V$ is a vector subspace, we know that it must be true that $\vec{u} + \vec{v} \in V$ (closed under vector addition).
+
+        % Repeat the same process except this time for $U$, and we can seee that $\vec{u} + \vec{v} \in U$.
+
+        % Now, let's combine our result. Since $\vec{u} + \vec{v}$ are in both $U$ and $V$, this implies that it must be in the intersection of the two, which is $U \cap V$!
+        }
+        \item{\textit{Scalar Multiplication:} 
+
+        Consider a vector $\vec{x} \in U \cap V$, and a real-number scalar $c \in \mathbb{R}$.
+
+        Again, since $\vec{x} \in U \cap V \Longrightarrow \vec{x} \in V$, and $V$ is already a vector subspace, so we know that by the property of scalar multiplication for a subspace, it must be true that $c\vec{x} \in V$.
+
+        Applying the same logic again for $U$, we can see $c\vec{x} \in U$.
+        }
+    \end{enumerate}
+    Since we've shown that the set is closed under vector addition and scalar multiplication, $U \cap V$ is also a vector subspace of $S$!  $\square$
+}
