@@ -1,8 +1,5 @@
 % Author: Mudit Gupta
 % Email: mudit+csm16a@berkeley.edu
-
-\learning{Eigenvalues Everywhere}
-
 Consider a square matrix $\mathbf{A}$ that is $n \times n$. Recall that we say $\lambda$ is an eigenvalue of $\mathbf{A}$ if there exists a \textbf{non-zero} vector $\vec{v}$ such that:
 $$\mathbf{A}\vec{v} = \lambda\vec{v}$$
 We call $\vec{v}$ the eigenvector associated with $\lambda$.
@@ -16,7 +13,7 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
     What is the one eigenvalue and eigenvector of the matrix that you can see without solving any equations? $$\mathbf{A} = \begin{bmatrix} 1 & 2 \\ 0 & 0 \end{bmatrix}$$ 
 }
 
-\answerbox{5}
+\answerbox{5cm}
 
 
 \sol{
@@ -41,7 +38,7 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
 
 }
 
-\answerbox{5}
+\answerbox{5cm}
 
 \sol{
     This is a scaling matrix. It scales any vector by a factor of $3$. What this means is that any vector $\vec{x} \in \mathbb{R}^3$ when post-multiplied by $\mathbf{A}$ will output $3\vec{x}$. This matrix has only one eigenvalue, $\lambda = 3$ and any $\vec{x} \in \mathbb{R}^3$ is an eigenvector. 
@@ -51,7 +48,7 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
     What are the eigenvalues of $$\mathbf{C} = \begin{bmatrix} 2 & 0 \\ 3 & 4 \\ 1 & 3 \end{bmatrix}?$$
 }
 
-\answerbox{5}
+\answerbox{5cm}
 
 \sol{
     A non-square matrix (say $m \times n$) maps a vector of dimension $n$ to a vector of dimension $m$. So, it is impossible for a non-square matrix to have eigenvalues, because the output cannot be a scaled version of the input. In fact, eigenvalues are defined only for square matrices. For similar reasons, the determinant of a matrix is only well-defined if the matrix is square.
@@ -62,7 +59,7 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
 }
 \note{Please draw a picture to show what the matrix does to a vector. Also remember we are only considering real eigenvalues, as written in the prompt of the problem.}
 
-\answerbox{5}
+\answerbox{5cm}
 
 \sol{
     Remember that the equation $\mathbf{A}\vec{x} = \lambda\vec{x}$ geometrically means that for the matrix $\mathbf{A}$, there exist some special vectors $\vec{x}$ that are merely scaled by $\lambda$ when post-multiplied by $\mathbf{A}$. For a matrix that takes a vector and rotates it by $45^\circ$, there are no real-valued vectors that it can simply scale. This means that there are no real eigenvalues for this matrix either. 
@@ -72,7 +69,7 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
     What are the eigenvalues of the following matrix? $$\mathbf{E} = \begin{bmatrix} 1 & \frac{1}{2} & \frac{1}{3} \\ 0 & \frac{1}{2} & \frac{1}{3} \\ 0 & 0 & \frac{1}{3}\end{bmatrix}$$
 }
 
-\answerbox{5}
+\answerbox{5cm}
 
 \sol{
     Remember that for upper triangular matrices, the eigenvalues can be read from the diagonal. $1, \frac{1}{2}, \frac{1}{3}$ are the three eigenvalues.
@@ -84,7 +81,7 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
 
 }
 
-\answerbox{5}
+\answerbox{5cm}
 
 \sol{
     This is a matrix whose rows sum to 1, therefore, it has an eigenvalue 1. 
@@ -106,7 +103,7 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
 
 Hint: The determinant of a matrix is the same as the determinant of its transpose}
 
-\answerbox{5}
+\answerbox{5cm}
 
 \sol{
     For any matrix $\mathbf{M}$, 
@@ -126,7 +123,7 @@ Hint: The determinant of a matrix is the same as the determinant of its transpos
     Consider a matrix whose columns sum to one. What is one possible eigenvalue of this matrix?
 }
 
-\answerbox{5}
+\answerbox{5cm}
 
 \sol{
     We showed that for any matrix like $\mathbf{F}$ whose rows sum to 1, one eigenvalue is 1. We also showed that a matrix and its transpose have the same eigenvalues. Consider $\mathbf{F}^T$. It has columns summing to 1. Therefore, 1 is an eigenvalue of $\mathbf{F}^T$ too, and by extension of all matrices whose columns sum to one. 
