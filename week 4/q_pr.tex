@@ -37,9 +37,23 @@ Now suppose we have a network consisting of 3 websites connected as shown below.
 \begin{enumerate}
     \item Write down the probability transition matrix for this graph, and call it $\m{P}$. Can you say something about the eigenalues/eigenvectors of $\m{P}^T$? (\textit{Hint: Try to recall the properties of transition matrices}).
     
-    \note{ Mentors: Explain how $\m{P}$ being a transition matrix relates to $\m{P}^T$ as a transition matrix, and depending on how comfortable students are with eigenvalues, mention that the eigenvalues of transposed matrices are always the same as original matrices.}
+    \note{ Mentors: Explain how $\m{P}$ being a transition matrix relates to $\m{P}^T$ as a transition matrix, and depending on how comfortable students are with eigenvalues, mention that the eigenvalues of transposed matrices are always the same as original matrices.
+
+    Explain that the columns of the transition matrix sum to 1 because each column represents the breakdown of one part of the state after the transition has taken place.
+    }
+
+    \answerbox{5cm}
     
     \sol{
+    Transition matrix notation: Let $A -> B$ represent the fraction of A that goes to B after transition.Then, a general 3x3 transition matrix with states A, B, and C can be written as follows: \\
+
+    $$\begin{bmatrix}
+    A -> A & B -> A & C -> A \\  
+    A -> B & B -> B & C -> B \\
+    A -> C & B -> C & C -> C \\
+    \end{bmatrix}$$
+
+
     The transition matrix is:
     $$\begin{bmatrix}
     1 & \frac{1}{2} & \frac{1}{3} \\
@@ -53,6 +67,8 @@ Now suppose we have a network consisting of 3 websites connected as shown below.
     
     \note{This is largely a mechanical question, so ensure that students understand (i) the purpose of this calculation, and (ii) the techniques involved in it.}
     
+    \answerbox{5cm}
+
     \sol{
     \begin{align*}
     P - I &=
@@ -96,6 +112,8 @@ Now suppose we have a network consisting of 3 websites connected as shown below.
     }
     
     \item Now looking at the matrix $\m{P}$, can you identify what its other eigenvalues are?
+
+    \answerbox{5cm}
     
     \note{\textbf{Mentors: } Please clarify to the students that the eigenvalues of an upper triangular matrix can be read off its diagonal is a known fact for EECS 16A. Refrain from proving why it is true algebraically since calculating the determinant of a 3 by 3 matrix is not in scope anymore this semester.}
     
@@ -104,6 +122,8 @@ Now suppose we have a network consisting of 3 websites connected as shown below.
     }
     
     \item Suppose that we start with 90 users evenly distributed among the websites. What is the steady-state number of people who will end up at each website?
+
+    \answerbox{5cm}
     
     \note{Ensure that the students understand why components with smaller eigenvalues will die out. Optionally, also explain why in any transition matrix no eigenvalue can be greater than 1, and so every component without eigenvalue one will die out.}
     

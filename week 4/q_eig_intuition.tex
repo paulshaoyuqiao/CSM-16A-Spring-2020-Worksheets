@@ -38,6 +38,10 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
 
 }
 
+\note{ 
+Make sure to remind students that this only works because the matrix is already in RRE form. Getting a matrix to RRE form and then doing this same strategy is NOT a correct way to calculate eigenvalues. 
+}
+
 \answerbox{5cm}
 
 \sol{
@@ -69,10 +73,14 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
     What are the eigenvalues of the following matrix? $$\mathbf{E} = \begin{bmatrix} 1 & \frac{1}{2} & \frac{1}{3} \\ 0 & \frac{1}{2} & \frac{1}{3} \\ 0 & 0 & \frac{1}{3}\end{bmatrix}$$
 }
 
+\note{
+     Same as 2.2, this only works because the matrix is already in this form.
+}
+
 \answerbox{5cm}
 
 \sol{
-    Remember that for upper triangular matrices, the eigenvalues can be read from the diagonal. $1, \frac{1}{2}, \frac{1}{3}$ are the three eigenvalues.
+    Remember that for upper triangular matrices, the eigenvalues can be read from the diagonal. $1, \frac{1}{2}, \frac{1}{3}$ are the three eigenvalues. This is because when multiplied by this matrix, any vector of the form $\begin{bmatrix} x \\ 0 \\ 0 \end{bmatrix}$ will be scaled by 1, $\begin{bmatrix} 0 \\ x \\ 0 \end{bmatrix}$ will be scaled by 1/2 and $\begin{bmatrix} 0 \\ 0 \\ x \end{bmatrix}$ will be scaled by 1/3.
 }
 
 \item{
@@ -103,6 +111,11 @@ Description: Meant to be an intuition problem on eigenvalues and eigenvectors.}
 
 Hint: The determinant of a matrix is the same as the determinant of its transpose}
 
+\note{
+Remind students that the step starting with “Note” is because of a property of transposition. 
+}
+
+
 \answerbox{5cm}
 
 \sol{
@@ -121,6 +134,10 @@ Hint: The determinant of a matrix is the same as the determinant of its transpos
 
 \item{
     Consider a matrix whose columns sum to one. What is one possible eigenvalue of this matrix?
+}
+
+\note{
+    Make sure it’s clear to students that this answer is derived from what we have already shown in the previous two parts.
 }
 
 \answerbox{5cm}
