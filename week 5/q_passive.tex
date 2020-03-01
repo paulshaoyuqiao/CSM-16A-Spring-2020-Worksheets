@@ -1,0 +1,248 @@
+% Lydia Lee, Spring 2019
+% lydia.lee@berkeley.edu
+For the following components, label all the missing $V_\text{element}$, $I_\text{element}$, and +/- signs. \textit{Hint: The value of the voltage and current sources shouldn't affect passive sign convention---remember that voltage and current can be negative!}
+\begin{enumerate}
+
+\note{For parts (a) and (b), make sure to clarify to your students that the box figure can represent any arbitrary circuit element (a resistor, a voltage source, etc.).}
+\item{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\ctikzset{resistor = european}
+		\draw (0,0) to[R, v=$V_\text{element}$] ++(4,0);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\ctikzset{resistor = european}
+		\draw (0,0) to[R, v=$V_\text{element}$, i=$I_\text{element}$] ++(5,0);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\ctikzset{resistor = european}
+		\draw (0,0) to[R, i=$I_\text{element}$] ++(5,0);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\ctikzset{resistor = european}
+		\draw (0,0) to[R, v=$V_\text{element}$, i=$I_\text{element}$] ++(5,0);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$V_\text{S}$, invert] ++(0,3)
+			to[open] ++(.5,0)
+			to[open, v^=$V_\text{element}$] ++(0,-3);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$V_\text{S}$, i=$I_\text{element}$, invert] ++(0,3)
+			to[open] ++(.5,0)
+			to[open, v^=$V_\text{element}$] ++(0,-3);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$1\si{\volt}$, invert] ++(0,3)
+		(0,0) to[open] ++(.5,0)
+			to[open, v_=$V_\text{element}$] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+
+\note{If students are confused by this answer, draw the source on the board, then a box around it. Shade in the box so the voltage source is obscured, and now the problem is identical to having a black box voltage source. This particular style of question has featured on several exams, and it's good to have lots of practice with this when calculating power.
+}
+
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$1\si{\volt}$, invert] ++(0,3)
+		(0,0) to[open] ++(.5,0)
+			to[open, v_=$V_\text{element}$] ++(0,3)
+		(0,0) to[open, i=$I_\text{element}$, invert] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{ 
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$V_\text{S}$, i=$I_\text{element}$, invert] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$V_\text{S}$, i=$I_\text{element}$, invert] ++(0,3)
+			to[open] ++(.5,0)
+			to[open, v^=$V_\text{element}$] ++(0,-3);
+	\end{circuitikz}
+\end{center}
+}
+
+\newpage
+\item{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$-1\si{\volt}$, invert] ++(0,3)
+		(0,0) to[open, i=$I_\text{element}$, invert] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[V, v=$-1\si{\volt}$, invert] ++(0,3)
+		(0,0) to[open] ++(.5,0)
+			to[open, v_=$V_\text{element}$] ++(0,3)
+		(0,0) to[open, i=$I_\text{element}$, invert] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{\textbf{(PRACTICE)}
+
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)
+			to[open] ++(.5,0)
+			to[open, v^=$V_\text{element}$] ++(0,-3);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)
+			to[open] ++(.5,0)
+			to[open, v^=$V_\text{element}$] ++(0,-3)
+		(0,3) to[open, i^=$I_\text{element}$] ++(0,-3);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{\textbf{(PRACTICE)}
+
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)
+		(0,0) to[open] ++(.5,0)
+			to[open, v_=$V_\text{element}$] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)			
+		(.5,0) to[open, v_=$V_\text{element}$] ++(0,3)
+		(0,0) to[open, i^=$I_\text{element}$] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{\textbf{(PRACTICE)}
+
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)
+			to[open, i=$I_\text{element}$] ++(0,-3);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)
+			to[open, i=$I_\text{element}$] ++(0,-3)
+		(.5,3) to[open, v^=$V_\text{element}$] ++(0,-3);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{\textbf{(PRACTICE)}
+
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)
+		(0,0) to[open, i=$I_\text{element}$, invert] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw 
+		(0,0) to[I, l=$I_\text{S}$, invert] ++(0,3)
+		(0,0) to[open] ++(.5,0)
+			to[open, v_=$V_\text{element}$] ++(0,3)
+		(0,0) to[open, i=$I_\text{element}$, invert] ++(0,3);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{\textbf{(PRACTICE)}
+
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw (0,0) to[R, i=$I_\text{element}$] ++(-4,0);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw (0,0) to[R, v=$V_\text{element}$, i=$I_\text{element}$] ++(-4,0);
+	\end{circuitikz}
+\end{center}
+}
+
+\item{\textbf{(PRACTICE)}
+
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw (0,0) to[R, v=$V_\text{element}$] ++(-4,0);
+	\end{circuitikz}
+\end{center}
+}
+\sol{
+\begin{center}
+	\begin{circuitikz}[scale=0.75]
+		\draw (0,0) to[R, v=$V_\text{element}$, i=$I_\text{element}$] ++(-4,0);
+	\end{circuitikz}
+\end{center}
+}
+\end{enumerate}
