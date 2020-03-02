@@ -262,11 +262,11 @@
 	\end{bmatrix}
     $$
     As we can see here, we have two rows of 0s, which means that we have two free variables ($x_2$ and $x_3$). Now we can take this matrix and write it as a linear system to get
-	$$x_1 + x_2 - x_3 = 0 \Rightarrow x_1 = x_3 - x_2$$
+	$$x_1 - x_2 + x_3 = 0 \Rightarrow x_1 = x_2 - x_3$$
 	
 	Thus, 
 	
-	$$\vec{x} = \begin{bmatrix} x_3 - x_2 \\  x_2 \\ x_3 \end{bmatrix} = x_3 \begin{bmatrix} 1\\  0 \\ 1 \end{bmatrix} + x_2 \begin{bmatrix} -1 \\  1 \\ 0 \end{bmatrix}$$
+	$$\vec{x} = \begin{bmatrix} x_2 - x_3 \\  x_2 \\ x_3 \end{bmatrix} = x_3 \begin{bmatrix} -1\\  0 \\ 1 \end{bmatrix} + x_2 \begin{bmatrix} 1 \\  1 \\ 0 \end{bmatrix}$$
 	Which are the two eigenvectors associated with $\lambda = -2$
 }
 \item{

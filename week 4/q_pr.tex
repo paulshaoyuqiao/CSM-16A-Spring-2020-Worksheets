@@ -21,15 +21,15 @@ Now suppose we have a network consisting of 3 websites connected as shown below.
 
 \begin{center}
 \begin{tikzpicture}[-latex, auto, node distance=4 cm and 5cm , on grid, semithick, state/.style ={circle, draw, minimum width=1 cm}]
-\node[state] (C)
-{$3$};
-\node[state] (A) [above left=of C] {$1$};
-\node[state] (B) [above right =of C] {$2$};
+
+\node[state] (C) {$C$};
+\node[state] (A) [above left=of C] {$A$};
+\node[state] (B) [above right =of C] {$B$};
 \path (A) edge [loop left] node[left] {$1$} (A);
 \path (C) edge node[below =0.15 cm] {$1/3$} (A);
-\path (C) edge [bend left =15] node[below =0.15 cm] {$1/3$} (B);
+\path (C) edge node[below =0.15 cm] {$1/3$} (B);
 \path (C) edge [loop below] node[below] {$1/3$} (C);
-\path (B) edge [bend right = -25] node[below =0.15 cm] {$1/2$} (C);
+\path (B) edge [loop right] node[right] {$1/2$} (B);
 \path (B) edge node[below =0.15 cm] {$1/2$} (A);
 \end{tikzpicture}
 \end{center}

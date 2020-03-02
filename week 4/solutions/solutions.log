@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2018.4.16)  28 FEB 2020 10:13
+This is LuaTeX, Version 1.07.0 (TeX Live 2018)  (format=lualatex 2018.4.16)  2 MAR 2020 00:14
  restricted system commands enabled.
  file:line:error style messages enabled.
 **"/Users/paulshao/Desktop/CSM 16A Sp20 Worksheets/week 4/solutions/solutions"
@@ -23,7 +23,7 @@ Inserting `luaotfload.aux.patch_cambria_domh' at position 2 in `luaotfload.patch
 Inserting `luaotfload.aux.fixup_fontdata' at position 1 in `luaotfload.patch_font_unsafe'.
 Inserting `luaotfload.aux.set_capheight' at position 3 in `luaotfload.patch_font'.
 Inserting `luaotfload.rewrite_fontname' at position 4 in `luaotfload.patch_font'.
-luaotfload | main : initialization completed in 0.091 seconds
+luaotfload | main : initialization completed in 0.098 seconds
 Babel <3.18> and hyphenation patterns for 1 language(s) loaded.
 (../macros.tex (/usr/local/texlive/2018/texmf-dist/tex/latex/base/article.cls
 Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
@@ -1464,16 +1464,16 @@ Package logreq Info: Writing requests to 'solutions.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 56343 strings out of 494413
+ 56339 strings out of 494413
  125171,1977958 words of node,token memory allocated
  846 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 1 kern, 79 attribute, 69 glue_spec, 79 attribute_list, 1 write nodes
-   avail lists: 1:2,2:1177,3:242,4:28,5:206,6:23,7:2697,8:84,9:550,10:7,11:126
- 58848 multiletter control sequences out of 65536+600000
+   avail lists: 1:2,2:1173,3:242,4:28,5:208,6:23,7:2697,8:84,9:550,10:7,11:126
+ 58844 multiletter control sequences out of 65536+600000
  59 fonts using 8273879 bytes
- 71i,18n,96p,906b,905s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 71i,18n,96p,906b,909s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmromanslant10-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmromanslant10-regular.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-regular.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-italic.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman12-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman9-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/opentype/public/lm/lmroman10-bold.otf></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2018/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on solutions.pdf (9 pages, 139507 bytes).
+Output written on solutions.pdf (9 pages, 139425 bytes).
 
 PDF statistics: 153 PDF objects out of 1000 (max. 8388607)
  109 compressed objects within 2 object streams
