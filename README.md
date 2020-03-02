@@ -9,3 +9,4 @@ Source files containing worksheets for CSM (Computer Science Mentors) - EECS 16A
 | 2      | [Week 2 Feedback](https://docs.google.com/document/d/1q_UfETL2FD5Vk7V5RYwheneMvxF0PSE4hc_kiWbDv_M/edit?usp=sharing) |
 | 3      | [Week 3 Feedback](https://docs.google.com/document/d/1iEtwi4Lgm_j2A27Kxk5ISzUpiFpQHocrHQ1sZxPoXJU/edit?usp=sharing) |
 | 4      | [Week 4 Feedback](https://docs.google.com/document/d/1nU-f7NyD1ZByVF2FVT5STrhQead4AeZ7MJ06Cwulugg/edit?usp=sharing) |
+| 5      | [Week 5 Feedback](https://docs.google.com/document/d/1YQhGfaot7PqSsWF2gYqJso4xi23C_BGJs4UwW9Cdews/edit?usp=sharing) |
