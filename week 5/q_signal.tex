@@ -13,7 +13,11 @@ We attach an ammeter (a device that measures current) as shown in the circuit be
 \end{figure}
 
 \begin{enumerate}
-    \item To get started, label the positive and negative terminals of the resistors and the ammeter based on the passive sign convention and how we've labeled the voltage source.
+    \item To get started, label the positive and negative terminals of the resistors and the ammeter based on the passive sign convention and how we've labeled the voltage source. To ensure consistency,  assume current comes out of the positive terminal of the voltage source and flows into the positive terminal of all other circuit elements.
+
+    \note{
+        Encourage the students to follow the direction of the current and the label and positve and negative terminals as instructed in the question.
+    }
 
     \sol{
         {
@@ -39,6 +43,10 @@ We attach an ammeter (a device that measures current) as shown in the circuit be
     }
 
     \item Let the current reading measured by the ammeter be $i$. Express $i$ as a function of $V_p$, $R_1$, and $R_2$.
+
+    \note{
+        Encourage students to think about equivalence within the circuit, namely parallel. It is also a good idea to use a simple KCL and KVL on this question to see how parallel circuit divides the current (compared to series circuit that acts as a voltage divider).
+    }
 
     \sol{
         We can see that $R_1$ and $R_2$ are in parallel, hence sharing the same voltage as $V_p$ and act as a current divider. Using Ohm's Law, we have:
@@ -75,6 +83,28 @@ We attach an ammeter (a device that measures current) as shown in the circuit be
     \end{figure}
     \begin{enumerate}
         \item In the grid below, plot out the $i$ versus $V_p$ graph. Make sure to label at least 2 points on the graph.
+
+        \note{
+            Be sure to enforce the idea that in this class, for a fixed constant resistor, $I$ versus $V$ will always constant as well (the plot should always look like a slanted line with positive slope that passes through the origin). This is the essence of Ohm's Law and it won't be affected by any external settings (no matter how complicated they are).
+        }
+
+        \begin{figure}[H]
+            \centering
+            \begin{tikzpicture}
+                \begin{axis}[
+                    xlabel={Current ($i$, in $A$ [amps])},
+                    ylabel={Voltage ($V_p$, in $V$ [volts])},
+                    xmin=0, xmax=10,
+                    ymin=0, ymax=10,
+                    xtick={0,2,4,6,8,10},
+                    ytick={0,2,4,6,8,10},
+                    legend pos=north west,
+                    ymajorgrids=true,
+                    grid style=dashed,
+                ]
+                \end{axis}
+            \end{tikzpicture}
+        \end{figure}
 
         \sol{
         $V_p = i \cdot \frac{R_1R_2}{R_1 + R_2} = 1.2i$.
