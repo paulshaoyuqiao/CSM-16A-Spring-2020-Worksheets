@@ -1,3 +1,7 @@
+\note{
+    Make clear that the voltage divider equation relates the output voltage to the voltage at the input of the first resistor for the first part. Then, for the third part, show how having the second voltage divider attached to the Vmid of the first one invalidates the first part as a voltage divider.
+}
+
 \begin{enumerate}
     \item Here, you can see two standard voltage dividers. Find the voltage at the points $A$ and $B$ using standard nodal analysis techniques.\\
     \begin{circuitikz}
@@ -77,6 +81,10 @@
     }
     
     \item Compare your answer with what you get when you multiplying the amplification factors of each individual voltage divider. Are they the same or different? Does this surprise you? Why or why not?
+
+    \note{
+    If students don’t entirely see why you can’t use the voltage divider twice, try redrawing the circuit. You can illustrate how R3 and R4 are in series, but both are in parallel with R2.
+    }
     
     \sol{
     They are clearly not the same! The next part explains why.
