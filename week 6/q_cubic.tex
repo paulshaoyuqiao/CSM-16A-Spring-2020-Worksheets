@@ -1,45 +1,25 @@
-\begin{center}
-    \begin{circuitikz}
-    
-    \draw (-3,4) [short, l = {start}, *-*] to (-1,4); 
-    \draw(-2,2) [short, *-*] to[R] (2,2);
-    \draw(-2,2) [short, *-*] to[R] (-1,4);
-    \draw(-1,4) [short, *-*] to[R] (3,4);
- 	\draw(3,4) [short, *-*] to[R](2,2);
-	\draw(3,4) [short, *-*] to[R] (3,1);
-	\draw(2,2) [short, *-*] to[R] (2, -1);
-	\draw(-2,2) [short, *-*] to[R] (-2,-1);
-	\draw(-1,4) [short, *-*] to[R] (-1,1);
-% 	\draw(-1,0) to[R,l=$I$] (-1,4);
-	\draw(-1,1) [short, *-*] to[R] (-2,-1);
-	\draw(-1,1) [short, *-*] to[R] (3,1);
-	\draw(-2,-1) [short, *-*] to[R] (2, -1);
-	\draw(3,1) [short, *-*] to[R] (2,-1);
-    \draw (4,-1) [short, l = {end}, *-*] to (2,-1); 
-    \end{circuitikz}
-\end{center}
 In this question, we will guide you through how to apply nodes and resistance equivalence to solve a complex resistor network (like the cubic one above, assuming all resistors are identical with a resistance of $R$) and find the equivalent resistance between the top back left node and the bottom front right node. \\
 \note{For this question, encourage the students to follow through the questions and apply nodal analysis and equivalent resistance along the way. Assure them that with the symmetrical nature of this cubic network, the result will appear less complicated than they expect.}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{../labeled.png}
+    \caption{3D View of the Resistor Network}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.45]{../flattened.png}
+    \caption{Flattened View of the Resistor Network, \\ where each segment between 2 nodes has a resistance of $R$}
+\end{figure}
+
 \begin{enumerate}
-    \item As daunting as this question looks, fortunately we have the power of nodal analysis on our side! 
-    \begin{enumerate}
-        \item First, label all the vertices of this cube with the letters $A$ through $H$ (starting with the top back left vertex as $A$ and the bottom front right vertex as $H$). \\
-        \note{Make sure to mention to the students that the starting node at the top back left should be labeled as $A$, while the ending node at the bottom front right should be labeled as $H$ so that they can consistently follow the labeling convention in subsequent parts of the question.}
-        \item Next, group the vertices from $B$ through $H$ based on the \textbf{distances of the shortest paths} along the edges of the cube starting from $A$. For example, the distance of the shortest path from $A$ to the bottom front left vertex will be 2 (assuming each edge of the cube is 1 unit long). \\
-        \note{Make sure to clarify to the students that shortest path always starts from $A$ (as our point of departure) and must go along the edges of the cube.} \\
-        \sol{Starting from this part and extending to the rest of this entire question, we label all the vertices as follows:
-        \begin{itemize}
-            \item top back left - $A$
-            \item top front left - $B$
-            \item top front right - $C$
-            \item top back right - $D$
-            \item bottom back left - $E$
-            \item bottom front left - $F$
-            \item bottom back right - $G$
-            \item bottom front right - $H$
-        \end{itemize}
-        }
-    \end{enumerate}  
+    \item As daunting as this question looks, fortunately we have the power of nodal analysis on our side! To get started, group the vertices from $B$ through $H$ based on the \textbf{distances of the shortest paths} along the edges of the cube starting from $A$. For example, the distance of the shortest path from $A$ to the bottom front left vertex will be 2 (assuming each edge of the cube is 1 unit long). \\
+    \note{Make sure to clarify to the students that shortest path always starts from $A$ (as our point of departure) and must go along the edges of the cube.} \\
+    \sol{
+        Starting from the vertex $A$, we can see that:
+        $B$, $D$, and $E$ are all 1 unit away from $A$, while $F$, $G$, abd $C$ are 2 units away from $A$, and $H$ (the endpoint) is 3 units away from $A$.
+    }
     \item Now, consider the group of all the vertices $v_i$ that are 1 unit away from $A$ (the starting node in the top back left) and the resistors in and between these pairs of nodes ($v_i$, $A$). How are they related to each other (Hint: think in terms of equivalent resistance)? \\
     \note{For this part, encourage the students to think in terms of potential differences. Use the following scenario as an example to provide them with some helpful hints: \\
     Suppose I have 2 pairs of nodes $(A, B)$ and $(C, D)$, both pairs have the same resistances between them $R_{A-B} = R_{C-D}$. What can we conclude about the potential differences ($V_{A-B}, V_{C-D}$) of both pairs?
