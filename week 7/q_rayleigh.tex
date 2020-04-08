@@ -1,0 +1,43 @@
+
+Suppose we have a symmetric matrix $A \in \mathbb{R}^{n \times n}$.
+
+\begin{enumerate}
+    \item Show that A has all real eigenvalues.
+
+    \sol{
+
+        Without loss of generality, let $(\lambda, \vec{v})$ be any eigenvalue-vector pair of $A$.
+
+        We have $A\vec{v} = \lambda \vec{v}$.
+
+        Since $A$ is also symmetric, $A = A^T$.
+
+        Consider the expression $\vec{v}^T A^T A\vec{v}$, we have:
+        $$\vec{v}^T A^T A \vec{v} = (A\vec{v})^T A\vec{v} = \innp{A\vec{v}}{A\vec{v}} = \norm{A\vec{v}}^2$$
+
+        At the same time, using what we have shown in part 1 of problem 3,
+        $$\vec{v}^T A^T A \vec{v} = \vec{v}^T A^2 \vec{v} = \vec{v}^T \lambda^2 \vec{v} = \lambda^2 \vec{v}^T \vec{v} = \lambda^2 \norm{\vec{v}}^2$$
+
+        We can see:
+        $$\norm{A\vec{v}}^2 = \lambda^2 \norm{\vec{v}}^2$$
+        $$\lambda^2 = \frac{\norm{A\vec{v}}^2}{\norm{\vec{v}}^2}$$
+        Since $\norm{A\vec{v}}^2 > 0, \norm{\vec{v}}^2 > 0$, we can see that $\lambda^2 = \text{ some positive number}$.
+
+        Hence, $\lambda$ must be real.
+    }
+
+    \item{
+        Using the result from part 2 of probelm 3, explain why the eigenvectors of $A$ are orthogonal to each other. (If the set of all eigenvectors are orthogonal to each other, we call the set an \textit{orthogonal eigenbasis})
+    }
+
+    \sol{
+        Since $A$ is symmetric, $A = A^T$. Suppose $\vec{u}$ is an eigenvector of $A$ with associated eigenvalue $\alpha$, and $\vec{v}$ is another eigenvector of $A$ with associated eigenvalue $\beta$.
+
+        Slightly modifying the proof from part 2 of problem 3, we can see that 
+        $$A\vec{u} = \alpha \vec{u},$$
+        $$A\vec{v} = A^T \vec{v} = \beta\vec{v}.$$ 
+        Now the rest of the proof from part 2 of problem 3 follows.
+    }
+
+    
+\end{enumerate}

@@ -1,0 +1,141 @@
+
+Up and till now, we have been extensively studying different examples of linear systems represented by the iconic matrix vector equation $A\vec{x} = \vec{v}$ and how to solve them.
+
+However, we haven't looked much into the sensitivity of a linear system to external changes. In particular, how the solutions to such linear systems react to small changes (we call these changes \textit{perturbations}) in $A$ or $b$ can be of great importance to designing a system \textit{robust} to changes.
+
+In this question, we will work toward deriving a well-know metric used to measure such sensitivity to \textit{perturbations} within the system.
+
+\begin{enumerate}
+    \item To get started, consider the following linear system:
+    $$
+    \begin{bmatrix}
+        10 & 7 & 8 & 7 \\
+        7 & 5 & 6 & 5 \\
+        8 & 6 & 10 & 9 \\
+        7 & 5 & 9 & 10
+    \end{bmatrix}\begin{bmatrix}
+        x_{1} \\
+        x_{2} \\
+        x_{3} \\
+        x_{4}
+        \end{bmatrix}=\begin{bmatrix}
+        32 \\
+        23 \\
+        33 \\
+        31
+        \end{bmatrix}
+    $$
+    First, find the solution to this system. Then, consider the following linear system with some slight \textit{perturbation} to the right-hand side (i.e. $\vec{b}$).
+    $$
+    \begin{bmatrix}
+        10 & 7 & 8 & 7 \\
+        7 & 5 & 6 & 5 \\
+        8 & 6 & 10 & 9 \\
+        7 & 5 & 9 & 10
+    \end{bmatrix}\begin{bmatrix}
+        x_{1} \\
+        x_{2} \\
+        x_{3} \\
+        x_{4}
+        \end{bmatrix}=\begin{bmatrix}
+        32.1 \\
+        22.9 \\
+        33.1 \\
+        30.9
+        \end{bmatrix}
+    $$
+    Find its solution, and compare how much it has changed from the previous system to how much $\vec{b}$ has changed from the previous system. What did you notice? Is this linear system sensitive to \textit{perturbations}?
+
+    \sol{
+        If we solve the first system, we can find its solution to be:
+        $$\vec{x}_{original} = \begin{bmatrix}
+            1 & 1 & 1 & 1
+        \end{bmatrix}^T$$
+        If we solve the second system, we can find its solution to be:
+        $$\vec{x}_{perturbed} = \begin{bmatrix}
+            9.2 & -12.6 & 4.5 & -1.1
+        \end{bmatrix}^T$$
+        As we can see, if we look at how $\vec{b}$ changes, every entry has only either increased or decreased by $0.1$, on an order of about $1/200$ with respect to its original value.
+
+        However, if we look at how $\vec{x}_{perturbed}$ changes from $\vec{x}$. We can see most of them has changed by the order of about $10/1$. Overall, this represents an amplification of a relative error between $\vec{b}$ and $\vec{x}$ on the order of $2000$.
+
+        This linear system is clearly sensitive to \textit{perturbations}!
+    }
+
+    \item Before moving forward, let us provide the following definition of \textbf{a norm that applies to matrices}.
+
+    We define the norm on a matrix $A$ as the greatest possible value of the vector norm $\norm{A\vec{v}}$ for all unit-length vectors $\vec{v}$.
+
+    In other words,
+    $$\norm{A} = \max _{\norm{\vec{v}} = 1} \norm{A\vec{v}}$$
+
+    In addition, assume the following property holds:
+    $$\norm{A\vec{v}} \leq \norm{A} \norm{\vec{v}}$$
+
+    Let's first study the case where we \textit{perturb} $\vec{b}$ slightly. Specifically, given an \textbf{invertible} matrix $A$, we have the following pair of solutions to a linear system and a lightly perturbed one:
+    $$A\vec{v} = \vec{b}$$
+    $$A(\vec{v} + \delta \vec{v}) = \vec{b} + \delta \vec{b}$$
+    Here, $\delta \vec{v}$ and $\delta \vec{b}$ represents the slight perturbation in the system. 
+
+    Show that we can find some constant $c$ such that:
+    $$
+    \frac{\norm{\delta \vec{v}}}{\norm{\vec{v}}} \leq c \cdot \frac{\norm{\delta \vec{b}}}{\norm{\vec{b}}}
+    $$
+
+    For those interested, we call this constant the \textit{condition number}.
+
+    \sol{
+        Starting with the given matrix-vector equations, we have:
+        $$A\vec{v} = \vec{b}$$
+        $$A\vec{v} + A\delta\vec{v} = \vec{b} + \delta \vec{b}$$
+        Subtracting the first equation from the second one, we have:
+        $$A \delta \vec{v} = \delta \vec{b}$$
+        $$\delta \vec{v} = A^{-1} \delta \vec{b}$$
+        Applying the matrix norm inequality, we notice that:
+        $$\norm{A^{-1} \delta \vec{b}} = \norm{\delta \vec{v}} \leq \norm{A^{-1}} \norm{\delta \vec{b}}$$
+        Applying the inequality to $A\vec{v} = \vec{b}$, we have:
+        $$\norm{\vec{b}} \leq \norm{A} \norm{\vec{v}}$$
+        Hence, we can multiply the two inequalities:
+        $$\norm{\delta \vec{v}} \norm{\vec{b}} \leq  \norm{A^{-1}} \norm{\delta \vec{b}} \norm{A} \norm{\vec{v}}$$
+        $$
+        \frac{\norm{\delta \vec{v}}}{\norm{\vec{v}}} \leq (\norm{A} \norm{A^{-1}}) \cdot \frac{\norm{\delta \vec{b}}}{\norm{\vec{b}}}
+        $$
+        Hence, we have shown that the relative error in the solution to a linear system ($\norm{\delta \vec{v}} / \norm{\vec{v}}$) can be bounded in terms of the relative error in our measurements for $\vec{b}$ ($\norm{\delta \vec{b}} / \norm{\vec{b}})$) as follows:
+        $$
+        \frac{\norm{\delta \vec{v}}}{\norm{\vec{v}}} \leq (\norm{A} \norm{A^{-1}}) \cdot \frac{\norm{\delta \vec{b}}}{\norm{\vec{b}}}
+        $$
+        In particular,
+        $$c = \norm{A} \norm{A^{-1}}$$
+    }
+
+    \item{
+        Now, instead of perturbing our measurement of the vector $\vec{b}$, we perturb the matrix $A$ by some amount $\delta A$. In particular, we have the following pair of solutions to a linear system and a lightly perturbed one:
+
+        $$A\vec{v} = \vec{b}$$
+        $$(A + \delta A)(\vec{v} + \delta \vec{v}) = \vec{b}$$
+
+        Show that we can achieve a similar bound on the relative error of the solution to the perturbed linear system using the \textbf{same} condition number from the previous part:
+
+        $$
+        \frac{\norm{\delta \vec{v}}}{\norm{\vec{v} + \delta \vec{v}}} \leq c \cdot \frac{\norm{\delta A}}{\norm{A}}
+        $$
+    
+        \sol{
+            Expanding the second equation, we get:
+            $$A\vec{v} + A \delta \vec{v} + \delta A(\vec{v} + \delta \vec{v}) = \vec{b}$$
+
+            Subtracting the first equation from the equation above, we get:
+            $$\delta \vec{v} = -A^{-1}\delta A(\vec{v} + \delta \vec{v})$$
+
+            Applying the inequality on matrix-vector norms again, we have:
+            $$\norm{\delta \vec{v}} \leq \norm{A^{-1}} \norm{\delta A} \norm{\vec{v} + \delta \vec{v}}$$
+
+            Hence, we can rewrite it as:
+            $$
+            \frac{\norm{\delta \vec{v}}}{\norm{\vec{v} + \delta \vec{v}}} \leq (\norm{A}\norm{A^{-1}}) \cdot \frac{\norm{\delta A}}{\norm{A}}
+            $$
+        }
+
+    }
+
+\end{enumerate}
