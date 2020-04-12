@@ -1,4 +1,9 @@
+
 Suppose we have a matrix $A \in \mathbb{R}^{n \times n}$.
+
+\note{
+    Make sure to instruct the students to do these parts sequentially, because later parts rely on the proofs of previous parts. These parts are derivations for some fundamental properties of Eigenspaces and Orthogonality.
+}
 
 \begin{enumerate}
     \item Show that if $\vec{v}$ is an eigenvector of $A$, then it must also be an eigenvector of $A^{2}$.
@@ -41,14 +46,14 @@ Suppose we have a matrix $A \in \mathbb{R}^{n \times n}$.
     
             We have $A\vec{v} = \lambda \vec{v}$.
     
-            Since $A$ is also symmetric, $A = A^T$.
-    
             Consider the expression $\vec{v}^T A^T A\vec{v}$, we have:
             $$\vec{v}^T A^T A \vec{v} = (A\vec{v})^T A\vec{v} = \innp{A\vec{v}}{A\vec{v}} = \norm{A\vec{v}}^2$$
-    
-            At the same time, using what we have shown in part 1 of problem 3,
+
+            Since $A$ is also symmetric, $A = A^T$.
+
+            At this point, using what we have shown in part 1 of problem 3, we also have:
             $$\vec{v}^T A^T A \vec{v} = \vec{v}^T A^2 \vec{v} = \vec{v}^T \lambda^2 \vec{v} = \lambda^2 \vec{v}^T \vec{v} = \lambda^2 \norm{\vec{v}}^2$$
-    
+
             We can see:
             $$\norm{A\vec{v}}^2 = \lambda^2 \norm{\vec{v}}^2$$
             $$\lambda^2 = \frac{\norm{A\vec{v}}^2}{\norm{\vec{v}}^2}$$
