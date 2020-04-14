@@ -64,7 +64,7 @@ In this question, we will work toward deriving a well-know metric used to measur
 
     \item Before moving forward, let us provide the following definition of \textbf{a norm that applies to matrices}.
 
-    We define the norm on a matrix $A$ as the greatest possible value of the vector norm $\norm{A\vec{v}}$ for all unit-length vectors $\vec{v}$.
+    We define the spectral norm on a matrix $A$ as the greatest possible value of the vector norm $\norm{A\vec{v}}$ for all unit-length vectors $\vec{v}$.
 
     In other words,
     $$\norm{A} = \max _{\norm{\vec{v}} = 1} \norm{A\vec{v}}$$
@@ -83,6 +83,10 @@ In this question, we will work toward deriving a well-know metric used to measur
     $$
 
     For those interested, we call this constant the \textit{condition number}.
+
+    \note{
+        Students might be confused with what $\delta \vec{v}$ and $\delta \vec{b}$ mean in the context of perturbation. An intuitive way to explain this is we are essentially just taking the equation $A\vec{v} = \vec{b}$ and multiplying both sides by $\delta$ (a really small number), like $dx$ when we are integrating a function $f(x)$.
+    }
 
     \sol{
         Starting with the given matrix-vector equations, we have:
