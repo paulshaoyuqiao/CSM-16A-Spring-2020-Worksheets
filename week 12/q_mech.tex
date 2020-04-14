@@ -1,0 +1,95 @@
+In this question, we will revisit the definition and some of the properties of cross correlation. 
+
+Remember that in class, we mentioned a discrete-time signal over a total of $n$ timestamps can be represented as a vector in $\mathbb{R}^n$. Suppose we receive a signal represented by the vector:
+$$\vec{r} = \begin{bmatrix}
+0 & 1 & -2 & 0
+\end{bmatrix}^\mathrm{T}$$
+Given another vector $\vec{s} = \begin{bmatrix}1 & 2 & -1 & 0\end{bmatrix}^\mathrm{T}$, we define the cross correlation of $\vec{r}$ with respect to $\vec{s}$ with an offset of $k$ as:
+    $$\operatorname{corr}_{\vec{r}}(\vec{s})[k]=\sum_{i=-\infty}^{\infty} r[i] s[i-k]$$
+    \textit{Note: we define the value of the signal for any index that is outside the range of the vector to be 0.}
+    
+    \note{\textbf{Mentors, } please note to your students that when used in an application-based context, as in the satellite-signal-transmission example in lecture, $\vec{r}$ represents the received signal, $\vec{s}$ represents the reference (source) signal, the signal we are comparing the received signal against.}
+    
+    \begin{enumerate}
+        \item Find the value of $\operatorname{corr}_{\vec{r}}(\vec{s})[0].$
+        
+        \sol{With an offset of $k=0$, we can see the expression for cross correlation simplified to:
+        $$\operatorname{corr}_{\vec{r}}( \vec{s})[k]=\sum_{i=-\infty}^{\infty} r[i] s[i].$$
+        We have:
+        $$
+        \begin{aligned}
+            \operatorname{corr}_{\vec{r}}(\vec{s})[0] &= \vec{r}[1]\vec{s}[1] + \vec{r}[2]\vec{s}[2] + \vec{r}[3]\vec{s}[3] + \vec{r}[4]\vec{s}[4] \\
+            &=(0)(1) + (1)(2) + (-1)(-2) + (0)(0) \\
+            &=4.
+        \end{aligned}
+        $$
+        }
+        \item Find the value of $\operatorname{corr}_{\vec{r}}( \vec{s})[1].$
+        
+        \sol{With an offset of $k=1$, we can see the expression for cross correlation simplified to:
+        $$\operatorname{corr}_{\vec{r}}( \vec{s})[1]=\sum_{i=-\infty}^{\infty} r[i] s[i-1].$$
+        We have:
+        $$
+        \begin{aligned}
+            \operatorname{corr}_{\vec{r}}(\vec{s})[1] &= \vec{r}[1]\vec{s}[0] + \vec{r}[2]\vec{s}[1] + \vec{r}[3]\vec{s}[2] + \vec{r}[4]\vec{s}[3] \\
+            &=(0)(0) + (1)(1) + (-2)(2) + (0)(-1) \\
+            &=-3.
+        \end{aligned}
+        $$
+        }
+        
+        \item Now you have done part (i), you might have realized that the formula for the cross correlation between $\vec{r}$ and $\vec{s}$ when $k = 0$ looks very similar to that of the inner product between $\vec{r}$ and $\vec{s}$. When $k = 0$, is the cross correlation between two vectors the same as their inner product? Why or why not?
+        
+        \sol{As similar as their formulas look alike, these two concepts are actually \textbf{not the same}. The key difference lies in that inner product only applies to two vectors \textbf{of the same dimensions}, while cross correlation can be actually applied on two vectors (or signals) of different sizes! An example would be given two discrete-time signals represented by the vectors 
+        $$\begin{aligned}
+            \vec{u} &= \begin{bmatrix} 1 & 2 & -1 \end{bmatrix}^\mathrm{T} \\
+            \vec{v} &= \begin{bmatrix} 2 & -1 \end{bmatrix}^\mathrm{T},
+        \end{aligned}$$
+        we cannot compute the inner product $\innp{\vec{u}}{\vec{v}}$ because the two vectors have different sizes, but we can compute their cross correlation at $k = 0$:
+        $$
+        \begin{aligned}
+            \operatorname{corr}_{\vec{r}}(\vec{s})[0] &= \vec{r}[1]\vec{s}[1] + \vec{r}[2]\vec{s}[2] \\
+            &= (1)(2) + (2)(-1)\\
+            &=0.
+        \end{aligned}
+        $$
+        Note we leave out the third term in $\vec{r}$ since it will be out of range for $\vec{s}$, which will just be the value 0 (does not contribute to the overall sum so we leave it out).
+        }
+        \item Note for the three parts above, we have been concerning ourselves with cross correlation \textbf{at a particular offset} so far. In reality, all these "offseted" correlations together define an overall cross correlation vector. To formalize this description, we define the cross correlation (vector) of $\vec{r}$ with respect to $\vec{s}$ as:
+        $$\operatorname{corr}_{\vec{r}}(\vec{s}) = \begin{bmatrix}
+            \operatorname{corr}_{\vec{r}}(\vec{s})[i] \\
+            \operatorname{corr}_{\vec{r}}(\vec{s})[i+1] \\
+            \vdots \\
+            \operatorname{corr}_{\vec{r}}(\vec{s})[i+n]
+        \end{bmatrix}.$$
+        Given the definition above, if we have a discrete-time signal $\vec{r}$ that is of length $x$ and another discrete-time signal $\vec{s}$ that is of length $y$, what would be the length of the vector $\operatorname{corr}_{\vec{r}}(\vec{s})$ (In other words, what would be the range $[i, i+n]$ in the definition above) ?
+        
+        \note{Be sure to remind your students that for any index that is outside the range of the given signal vector, the value will be 0 by default. This can help them narrow down the smallest size the correlation vector needs to be.}
+        
+        \sol{
+            Given $\vec{r}$ has a length of $x$, and $\vec{s}$ has a length of $y$, we can see that the smallest value of offset $k$ can be $-(y - 1) = -y + 1$ since $i-k = i+y - 1$ at that point, and for any even smaller offset, we will be always out of range for $\vec{s}$. At the same time, we can see that for any positive offset $k$, we should always start sampling the signal $\vec{r}$ at the index $1+k$ because any earlier index would mean negative indices for $\vec{s}$, and that will always be undefined (which is 0). This means $1 + k$ can be at most $x - 1$, because for any offset greater than that, the index will be out of range for $\vec{u}$.
+            Hence, we have found our range of indices to be $[-y, x - 1]$, and the length is:  $x - 1 - (-y + 1) + 1 = x + y - 1$. \\
+            
+            Therefore, if we have a vector $\vec{r}$ of length $x$ and another vector $\vec{s}$ of length $y$, the cross correlation (vector) of $\vec{r}$ with respect to $\vec{s}$ will have a length of $x + y - 1$, and we can also improve the indexing of the offset $k$ in our original formula to be:
+            $$\operatorname{corr}_{\vec{r}}(\vec{s}) = \begin{bmatrix}
+            \operatorname{corr}_{\vec{r}}(\vec{s})[-y + 1] \\
+           \operatorname{corr}_{\vec{r}}(\vec{s})[-y+2] \\
+            \vdots \\
+            \operatorname{corr}_{\vec{r}}(\vec{s})[x-1]
+        \end{bmatrix}.$$
+        }
+        \item Based on all of the parts above, find the cross correlation vector of $\vec{r}$ with respect to $\vec{s}$: $\operatorname{corr}_{\vec{r}}(\vec{s})$.
+        \sol{
+            Since both $\vec{r}$ and $\vec{s}$ have lengths 4, we know that our cross correlation vector will have the following form:
+            $$\operatorname{corr}_{\vec{r}}(\vec{s}) = \begin{bmatrix}
+            \operatorname{corr}_{\vec{r}}(\vec{s})[-4] \\
+            \operatorname{corr}_{\vec{r}}(\vec{s})[-3] \\
+            \vdots \\
+            \operatorname{corr}_{\vec{r}}(\vec{s})[3]
+        \end{bmatrix}.$$
+        Computing the correlation with the given offset entry by entry, we can find our cross correlation vector to be:
+        $$\operatorname{corr}_{\vec{r}}(\vec{s}) = \begin{bmatrix}
+            0 & 0 & -1 & 4 & -3 & -2 & 0
+        \end{bmatrix}^\mathrm{T}.$$
+        }
+    \end{enumerate}
