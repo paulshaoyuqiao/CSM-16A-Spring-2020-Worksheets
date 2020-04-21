@@ -1,0 +1,208 @@
+
+Consider a set of patients. Patient $i$ can be represented by an attribute vector $\vec{x}^{(i)} = \begin{bmatrix}
+x_1^{(i)}\\ 
+x_2^{(i)}\\ 
+\end{bmatrix}$ as well as a known label $y^{(i)} \in \left \{ -1, +1 \right \}$ indicating whether they have a disease $D$. We want to design a simple classifier that can use the information from the data we have in order to predict whether a patient with attributes $x_1^{(i)}$ and $x_2^{(i)}$ and unknown diagnosis status has the disease. To do this, we will use our knowledge of least squares linear regression. We would like to design a linear function
+$$f\left(\vec{x}^{(i)}\right) = \vec{w}^T \vec{x}^{(i)}$$
+that takes in a vector $\vec{x}^{(i)}$ for a patient $i$ and computes $y^{(i)} = \operatorname{sign}(f(\vec{x}^{(i)})$ to predict whether the patient has the disease.
+
+\textbf{Note:} $\operatorname{sign}(x) = \begin{Bmatrix} +1 & \text{if }x \geq 0 \\ -1 & \text{if } x < 0 \end{Bmatrix}$
+\begin{enumerate}
+    \item In order to make our classifier as accurate as possible, we've found the following 4 error functions that we can choose from to minimize. choose \textbf{one that best suits our model} and \textbf{explain why the other three don't work as well} in this scenario.
+    \begin{itemize}
+        \item Linear Error: $\vec{e} = \vec{y}^{(i)} - f(\vec{x}^{(i)})$
+        \item Absolute Error: $\vec{e} = |\vec{y}^{(i)} - f(\vec{x}^{(i)})|$
+        \item Squared Error: $\vec{e} = (\vec{y}^{(i)} - f(\vec{x}^{(i)})^2$
+        \item Sign Error: $\vec{e} = \left\{\begin{matrix}
+        +1, \text{if } \vec{y}^{(i)} = f(\vec{x}^{(i)}) \\
+        -1, \text{if } \vec{y}^{(i)} \neq f(\vec{x}^{(i)})
+        \end{matrix}\right.$
+    \end{itemize}
+    
+    \note{It is a good idea to plot out what each of the cost functions using a toy dataset (4 or 5 random data points) and see what they would look like to give students a better intuition of why squared error is the best choice here. 
+    }
+    
+    \sol{Out of the existing options we have, squared error is the best option because it efficiently computes the deviation of our prediction from the actual labels for classifying the patients. The reasons why the other error functions don't work as well are as follows:
+    \begin{itemize}
+        \item Linear error doesn't work well due to signed error (a patient with a label of -1 misclassified as +1 will instead incur a loss of +2).
+        \item Absolute Error doesn't work well because we can't easily work with absolute expressions algebraically.
+        \item Sign Error, a reasonable model, again doesn't work well because it is a piecewise function and makes optimization on all the data points much trickier.
+    \end{itemize}
+    
+    \textbf{Optional: } In real life, since this is a binary (two-class) classification task, we actually have some other error functions that are even better suited. You are not required to know this for the class, but in case you are interested, \textit{cross entropy} error function is most commonly used for training binary classification models:
+    $$
+l(\beta)=\log L(\beta) =\sum_{i=1}^ny_i\log h_{\beta}(\vec{x}_i) + (1-y_i)\log (1-h_{\beta}(\vec{x}_i)),
+$$
+where $(\vec{x}_i, y_i)$ are our data points, and $h_{\beta}$ is the logistic (or sigmoid) function $h_{\beta}(x) = \frac{1}{1 + e^{-x}}$.
+
+One intuitive reason we don't use squared error for a binary classification task is because it treats the outputs of our model as something continuous, while in reality, in the context of this problem, we only have 2 discrete outputs, -1 (does not have the disease $D$) or +1 (has the disease $D$). This makes further interpreting the model and extracting information from the performance of our model nearly impossible.
+}
+    
+        \item Suppose we have a brand new set of data points as shown in the table below along with a column representing the actual diagnosis results: (+1) for positive diagnosis and (-1) for negative diagnosis. Given that we've found the weight vector $\vec{w}$ of our linear function $f(\vec{x}^{(i)})$ to be $\begin{bmatrix}
+            2\\ 
+            3
+            \end{bmatrix}$, predict whether each patient has the disease by filling in the table with the prediction \textbf{Yes, No, } or \textbf{Inconclusive}. What is the accuracy of our linear classifier?
+        \begin{table}[h]
+        \centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Patient & Attribute $x_1$ & Attribute $x_2$ & Diagnosis Result & Prediction from the Classifier \\ \hline
+1       & 1               & 0               & (+1)             &                                \\ \hline
+2       & -6              & 1               & (-1)             &                                \\ \hline
+3       & -5              & -5              & (+1)             &                                \\ \hline
+4       & 9               & -6              & (-1)             &                                \\ \hline
+\end{tabular}
+\end{table}
+
+\sol{Recall 0 is the boundary for whether a patient has the disease. $w^T\vec{x} = 2x_1 + 3x_2$. Plugging in the values of $x_1$ and $x_2$ for each row and comparing them against the boundary value (0), we obtain the following classification:
+
+        \begin{table}[H]
+        \centering
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Patient & Attribute $x_1$ & Attribute $x_2$ & Diagnosis Result & Prediction from the Classifier \\ \hline
+1       & 1               & 0               & (+1)             & Yes                               \\ \hline
+2       & -6              & 1               & (-1)             & No                                \\ \hline
+3       & -5              & -5              & (+1)             & No                               \\ \hline
+4       & 9               & -6              & (-1)             & Inconclusive                                \\ \hline
+\end{tabular}
+\end{table}
+
+We've correctly classified 2 out of the 4 patients, hence the accuracy of our model is $\frac{2}{4} = 50 \%$
+}
+
+\item Applying the same model, we have found a different linear classifier $f(\vec{x}^{(j)})=\vec{w}^T \vec{x}^{(j)}$ for another disease $T$ with 2 attributes from each patient. Surprisingly, the disease has an astonishingly high accuracy of 95 \% on all the patients we have trained our classifier on so far.
+
+\note{It is helpful to encourage the students to think from a real-life context when making inferences about the accuracy of their linear classifiers. If time permits, spending some time talking about the tradeoff between the variance and bias in a classification model will also give students more insights into the limitation of linear classifiers.}
+
+\begin{enumerate}
+    \item In order to further validate our model, we obtain a new batch of data on 50 more patients along with their diagnosis results. What can we infer about the accuracy of our classifier's performance on those 50 patients? Circle one below and provide your justification.
+$$\text{At most }95\% \:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\: \text{Exactly } 95\% \:\:\:\:\:\:\:\:\:\:\:\:\:\: \text{At least } 95\% \:\:\:\:\:\:\:\:\:\:\:\:\:\: \text{Cannot be determined}$$
+
+\sol{Cannot be determined. It is possible that we overfit our classifier on all the patients we have so far, and the new testing data will bring down the accuracy of our model. It might also be possible this particular disease $T$ exhibits a linear correlation among the given set of features.}
+
+\item We want a more comprehensive model and decides to add more attributes of each patient to our linear classifier. What can we most likely infer about the accuracy of our classifier on the original dataset? Circle one below and provide your justification. 
+$$\text{At most } 95\% \:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\:\: \text{Exactly } 95\% \:\:\:\:\:\:\:\:\:\:\:\:\:\: \text{At least } 95\% \:\:\:\:\:\:\:\:\:\:\:\:\:\: \text{Cannot be determined}$$
+
+\sol{At most 95\%. As the complexity of the model increases, the bias of the model will decrease. This means the accuracy of our classifier on the original dataset (which we are trying to optimize over) is also guaranteed \textbf{to be at least as good as the previous model}. \\ \\
+\textit{Note: } In the solution above, we mentioned the term "bias". In this class, you can think of bias as the length of the residual vector $\|\vec{r}\| = \|\vec{y} - f(X)\|$. It addresses \textbf{how much our prediction deviates from what we expect the results to be}, and it is closely related with the accuracy of a model on the dataset. \\ \\
+(\textbf{The following part is optional}) Another interesting fact to note is that, as the complexity of a model increases (with more features), while we are able to make better predictions on the original dataset we use to train our model, the "variance" of the model also increases as a result. You can think of "variance" as something that describes \textbf{how much the model specifically fits onto the training dataset and deviates from a more general and robust pattern}. A helpful example to think about is trying to fit a degree-10 polynomial on a set of points that, when plotted out, resemble much more the shape of a parabola. While the degree-10 polynomial might fit almost every single point in the original dataset perfectly. It we add in any new point, the model will likely not predict as well as if we had used a quadratic model.} 
+\end{enumerate}
+
+Now that we are done with choosing the best error (cost) function for our linear classifier and are satisfied with its accuracy on the dataset, we have decided to dig more into the actual process of diagnosing the disease. Surprisingly, it turns out that part of the diagnosis process can be further refined using the least squares method we have learned in class! \\
+
+To give a bit more context, part of the diagnosis process requires measuring neural impulses from the patient. For the simplicity of this problem, we assume the neural impulses can be measured through a sensor that converts the impulses to \textbf{discrete-time signals}. When converting the electric impulses to samples of signals and transmitting these samples to the measurement device, some samples got lost or corrupted in the process. To complicate the problem even more, the missing samples may be randomly distributed through out the signal. Our task is to fill in missing values \textbf{based on the available uncorrupted data} in order to conceal these errors (this process is formally known as \textit{error concealment}). \\
+
+\item To help us reformulate this problem as a least squares problem, we need to derive the matrix properly representing our data. The following subparts will guide you through this process. 
+\begin{enumerate}
+    \item Suppose we originally have a total of 5 samples in the signal, and during the transmission process, the 3rd and 4th samples have become unusable (either lost or corrupted). In other words, given a length 5 vector $\vec{s}$ where each entry represents a sample of the signal, $vec{s}$ is reduced down to a length 3 vector $\vec{r}$ because the original 3rd and 4th entries can no longer be used.
+    $$\vec{s} = \begin{bmatrix}
+    s_1 \\
+    s_2 \\
+    s_3 \\
+    s_4 \\
+    s_5
+    \end{bmatrix} \longrightarrow \begin{bmatrix}
+    s_1 \\
+    s_2 \\
+    s_5
+    \end{bmatrix} = \vec{r}.$$
+    Find a matrix $H$ that when applied to $\vec{s}$, can result in $\vec{r}$. In other words, find $S$ such that $H\vec{s} = \vec{r}.$
+    
+    \note{When working on this question, be sure to encourage the students to think in terms of linear transformation and understand how we can eliminate the 3rd and 4th entry in a given vector. It might be helpful to start with an identity matrix and see if it can be tweaked to satisfy the requirement.}
+    
+    \sol{
+    To accommodate the length of our original signal, we start with a $5 \times 5$ identity matrix $I_5$, and we can see that when we take out the 3rd and 4th rows in $I_5$, the resulting matrix, when applied on $\vec{s}$, exactly eliminates the 3rd and 4th entries as well! Hence,
+    $$S = \begin{bmatrix}
+    1 & 0 & 0 & 0 & 0 \\
+    0 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1
+    \end{bmatrix}.$$
+    }
+    
+    \item Now, let's think about the reversed process. In the context of this question, we end up receiving the signal only containing the original 1st, 2nd and 5th entries, but we would like to recover our original signal. To ``re-expand'' the vector back to length 5, for now, we will fill all the missing entries with 0. In other words, we have:
+    $$\vec{r} = \begin{bmatrix}
+    s_1 \\
+    s_2 \\
+    s_5
+    \end{bmatrix} \longrightarrow \begin{bmatrix}
+    s_1 \\
+    s_2 \\
+    0 \\
+    0 \\
+    s_5
+    \end{bmatrix} = \vec{s}'.$$
+    Find a matrix $H'$ such that $H'\vec{r} = \vec{s}'$, and show that $H' = H^T.$
+    
+    \note{Encourage the students to apply the same approach as they did for the previous part and motivate them to transform the matrix $H$ to achieve the new matrix $H'$ that reverses the process. It is also important to remind the students that we cannot simply take the inverse in this case not only because we are asked to fill the missing entries with 0, but also because the matrix $H$ is non-square.}
+    
+    \sol{Observing that in $H$, we zeroed out the 3rd and 4th entries in $\vec{s}$ through columns of zeros in the 3rd and 4th columns of $H$. Similarly, we can reverse engineer the process by using rows of zeros instead in the 3rd and 4th rows. In fact, it turns out that:
+    $$H' = \begin{bmatrix}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 1
+    \end{bmatrix} = H^T.$$
+    Hence, we can see that $H' = H^T.$
+    }
+    
+    \item Using the matrix $H'$ we have found in the previous part, we now want to find the ``\textit{complement}'' of $H'$ (we will call it $H_c'$). We define the $H_c'$ as the matrix that, when applied, expands a length 2 vector $\vec{r}_c$ containing the two missing entries in $\vec{s}$ to a length 5 vector padded with zeros. In other words, we have:
+     $$\vec{r}_c = \begin{bmatrix}
+    s_3 \\
+    s_4
+    \end{bmatrix} \longrightarrow \begin{bmatrix}
+    0 \\
+    0 \\
+    s_3 \\
+    s_4 \\
+    0
+    \end{bmatrix} = \vec{s}_c'.$$
+    Find the matrix $H_c'$ such that $H'\vec{r}_c = \vec{s}_c'.$ For the consistency in notation for the rest of this problem, we will also re-express $H_c' = H_c^T$ (to align with $H^T$ from the previous part).
+    
+    \sol{Again, using a similar approach from the previous two parts, we can find the complement of $H'$ to be:
+    $$H_c' = \begin{bmatrix}
+    0 & 0 \\
+    0 & 0 \\
+    1 & 0 \\
+    0 & 1 \\
+    0 & 0 \\
+    0 & 0
+    \end{bmatrix} = H_c^T.
+    $$
+    }
+    
+    \item Now that we have found the matrix $H^T$ and its complement $H_c^T$, we would like to re-express our original signal vector $\vec{s}$. Rewrite the original signal vector $\vec{s}$ in terms of $H^T$, $H_c^T$, $\vec{r}$, and $\vec{r}_c$. Within this expression, what is the \textbf{unknown term} we are trying to recover?
+    
+    \note{
+        For this question, encourage the students to decompose the original signal vector as a sum of two vectors. Motivate them to think what are the two vectors we have worked with so far that contain zeros for invalid/missing entries and are complements of each other.
+    }
+    
+    \sol{We can rewrite our original signal vector $\vec{s}$ through the following decomposition:
+    $$\vec{s} = \begin{bmatrix}
+    s_1 \\ s_2 \\ s_3 \\ s_4 \\ s_5
+    \end{bmatrix} = \begin{bmatrix}
+    s_1 \\ s_2 \\ 0 \\ 0 \\ s_5
+    \end{bmatrix} + \begin{bmatrix}
+    0 \\ 0 \\ s_3 \\ s_4 \\ 0
+    \end{bmatrix} = \vec{s}' + \vec{s}_c' = H^T \vec{r} + H_c^T \vec{r}_c.$$
+    Therefore, we can see that:
+    $$\vec{s} = H^T \vec{r} + H_c^T \vec{r}_c.$$
+    Within this expression, we can see that $\vec{r}_c$ is the term we are trying to recover because it contains the missing/corrupted 3rd and 4th entries from our original signal vector.
+    }
+\end{enumerate} 
+\item To complete the reformulation of this problem in a least squares setting, we would like to find an expression representing the cost of our model. Suppose we have an orthogonal square matrix $D$. Given our received signal $\vec{r}$ (has a length of 5; contains missing/corrupted entries as well), our original signal $\vec{s}$, and the matrix $D$, consider the following expression as the cost function we would like to minimize:
+$$C(\vec{s}, \vec{r}) = \|\vec{s} - \vec{r} \|^2 + \|D\vec{s}\|^2$$
+Specifically, for the term $\|D\vec{s}\|$, show that $\|D\vec{s}\| = \|\vec{s}\|$ and explain how it helps control the minimization process as when its value increases v.s. decreases.
+
+\sol{
+    Breaking the expression down into two separate norms, we can see that the first term, $\|\vec{s} - \vec{r}\|^2$, represents the squared difference between our received signal containing corrupted terms and the original signal. The second term, $\|D\vec{s}\|^2 = (D\vec{s})^T (D\vec{s}) = \vec{s}^T (D^T D) \vec{s} = \vec{s}^T \vec{s} = \|\vec{s}\|^2$, which actually just represents the squared norm of the original signal $\vec{s}$ itself! As a quick reminder, for an orthogonal square matrix $D$, $D^T D = I$. \\ \\
+    
+    Intuitively, we would like our received and corrupted signal $\vec{r}$ to be as close to the predicted original signal $\vec{s}$ as possible, so this gives rise to the first term $\|\vec{s} - \vec{r}\|^2$. The reason for having $\|D\vec{s}\|^2$ is a bit more subtle:
+    \begin{itemize}
+        \item By minimizing $\|D\vec{s}\|^2$, we are minimizing the overall expression, allowing $\|\vec{s} - \vec{r}\|^2$ to be closer to 0, and consequently $\vec{s}$ to be closer to $\vec{r}$ (which matches our original objective with the first term).
+        \item If the discrepancy between $\vec{s}$ and $\vec{r}$ increases, this will also cause $\|D\vec{s}\|^2$ to increase. This is undesirable because we will have an overall higher cost, and in the process of minimizing the cost function, this will lead us to avoid such a choice of $\vec{s}$ as well.
+    \end{itemize}
+    To sum up, the term $\|D\vec{s}\|^2$ "\textit{controls}" how the overall cost expression changes by rewarding (less cost) when it is performing well; and penalizing (more cost) when it is performing poorly.
+}
+\end{enumerate}

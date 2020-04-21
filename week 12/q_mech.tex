@@ -1,6 +1,11 @@
 In this question, we will revisit the definition and some of the properties of cross correlation. 
 
 Remember that in class, we mentioned a discrete-time signal over a total of $n$ timestamps can be represented as a vector in $\mathbb{R}^n$. Suppose we receive a signal represented by the vector:
+
+\note{
+    Remind students that when shifting the signal $s$ in correlation, subtracting by $k$ translates to moving the signal to the right by $k$ timesteps.
+}
+
 $$\vec{r} = \begin{bmatrix}
 0 & 1 & -2 & 0
 \end{bmatrix}^\mathrm{T}$$
@@ -19,7 +24,7 @@ Given another vector $\vec{s} = \begin{bmatrix}1 & 2 & -1 & 0\end{bmatrix}^\math
         $$
         \begin{aligned}
             \operatorname{corr}_{\vec{r}}(\vec{s})[0] &= \vec{r}[1]\vec{s}[1] + \vec{r}[2]\vec{s}[2] + \vec{r}[3]\vec{s}[3] + \vec{r}[4]\vec{s}[4] \\
-            &=(0)(1) + (1)(2) + (-1)(-2) + (0)(0) \\
+            &=(0)(1) + (1)(2) + (-2)(-1) + (0)(0) \\
             &=4.
         \end{aligned}
         $$
