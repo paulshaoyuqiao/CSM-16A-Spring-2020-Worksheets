@@ -3,6 +3,8 @@
 
 \note{
 Description: Show how to construct a VCCS using two op-amps and some resistors
+
+This problem emphasizes the effectiveness of solving a complicated circuit-design problem by breaking it down into smaller, bite-size problems that we can solve with single elements or simpler configurations.
 }
 
 A Voltage Controlled Current Source looks like this:
@@ -37,7 +39,7 @@ It can be connected to any load resistor (it has a resistance of $R_{load}$), an
 \item{ 
 
 In order to create a VCCS, we'll need some way to turn an input voltage into a current. What's the simplest way we can accomplish this? \\
-Hint: Think about the relation between voltage and current.
+Hint: What’s a circuit element that relates voltage and current?
 }
 
 \note{
@@ -155,7 +157,10 @@ Where can we place our previous circuit and $R_{load}$ to take advantage of this
 
 }
 
-\note{Make sure that students understand how this works for an arbitrary $G$. Basically, if you want a gain of $G$, then place a resistor of value $\dfrac{1}{G}$ in place of $R_{ref}$. Also make sure that students understand that the output terminal of this VCCS is the output of the second op-amp.}
+\note{Make sure that students understand how this works for an arbitrary $G$. Basically, if you want a gain of $G$, then place a resistor of value $\dfrac{1}{G}$ in place of $R_{ref}$. Also make sure that students understand that the output terminal of this VCCS is the output of the second op-amp.
+
+When we are asked to build a circuit that behaves the same no matter what load is attached, that should, as far as 16A is concerned, automatically trigger thoughts of op-amps. In the case of this circuit, we need two op-amps because we both don’t want our circuit to be loaded by whatever resistor is attached, and don’t want our circuit to load whatever is providing the reference voltage (it takes in both an input and an output).
+}
 
 \sol{
 

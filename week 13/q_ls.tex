@@ -1,7 +1,6 @@
 % Authors: Sukrit Arora, Rohan Suresh, Henry Sun
 % Emails: sukrit.arora@berkeley.edu, 
-\begin{enumerate}
-\item{Consider the basic problem of finding some $\vec{x}$ such that $\mathbf{A}\vec{x} = \vec{b}$. If we have an equal number of equations as unknowns, then we are pretty happy.\\
+Consider the basic problem of finding some $\vec{x}$ such that $\mathbf{A}\vec{x} = \vec{b}$. If we have an equal number of equations as unknowns, then we are pretty happy.\\
 
 In many cases, however, we cannot find a solution, as the set of equations that are described by $\mathbf{A}$ and $\vec{b}$ are overdetermined (i.e. there are more equations than there are unknowns).\\
 
@@ -9,7 +8,9 @@ In general, least squares involves finding the best approximate solution to thes
     
 Looking at this graphically, we can think of the problem of data-fitting. That is to say that we have many samples, and we want to draw a straight line that goes as close to each point as possible.\\
 
-Looking at the plot below, setup a system of linear equations describing a line going through each point.\\
+\begin{enumerate}
+
+\item{Looking at the plot below, setup a system of linear equations describing a line going through each point.\\
 
 \begin{center}
 \begin{tikzpicture}[>=latex]
@@ -50,6 +51,10 @@ Looking at the plot below, setup a system of linear equations describing a line 
 
 \item{
     Put this system of linear equations into matrix-vector form.
+}
+
+\note{
+  If students are confused about how to populate A, expand out the multiplication Ax and show that doing so recovers the original system of equations.
 }
 
 \sol{
@@ -118,7 +123,13 @@ Looking at the plot below, setup a system of linear equations describing a line 
 }
     
 \item{
-Gauss used Least Squares to predict where certain planets would be in their orbit. A scientist named Piazzi made 19 observations over the period of a month in regards to the orbit of Ceres (can be viewed as equations). Gauss used some of these observations. He also knew the general shape of the orbit of planets due to Kepler's laws of planetary motion. Gauss set up equations like so: $$\alpha x^2 + \beta xy + \gamma y^2 + \delta x + \epsilon y = 1$$ So, if we make observations on the positions of the planetary bodies, how can we use least squares to find the orbit of the planet?}
+C.F. Gauss (the 19th century mathematician of Gaussian elimination fame) used least squares to model the orbits of various celestial bodies around the sun. From Kepler’s laws of planetary motion, Gauss constructed the following equation:
+$$\alpha x^2 + \beta xy + \gamma y^2 + \delta x + \epsilon y = 1$$ where x and y describe the position of the object in the 2D plane of its orbit around the sun, and the Greek letters are unknown coefficients.
+A scientist named Piazzi observed the orbit of the dwarf planet Ceres over the period of a month, producing 19 data points of its xy-coordinates. Given this data, how might Gauss have used least squares to recover appropriate values of the coefficients alpha, beta, gamma, delta, epsilon to model the orbit of Ceres?}
+
+\note{
+  This subpart is interesting because it uses least squares to solve a system of equations that we might at first glance consider nonlinear. Emphasize to students that x and y in this problem are data points, and our variables of interest are coefficients; the equations are still linear in our coefficients.
+}
 
 \sol{
 The question we need to ask is: what are the variables we need to solve for? In this case, we have points in space: thus, we have values of $x$ and $y$. Using these two values, we can also easily find $x^2$, $xy$, and $y^2$. So, the unknowns in this story are the coefficients of these variables, or the "weights" of each term. Thus we can set this problem for $n$ measurements in the form of $\mathbf{A}\vec{x}=\vec{b}$:
